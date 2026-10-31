@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sigilock · Herramientas con IA y automatización</title>
+<meta name="description" content="Juan construye herramientas con IA, automatizaciones y aplicaciones web para negocios. Creador de Meat Signal.">
+<meta property="og:title" content="Sigilock · Herramientas con IA y automatización">
+<meta property="og:description" content="Herramientas con IA, automatizaciones y aplicaciones web para negocios. Creador de Meat Signal.">
+<meta property="og:image" content="img/avatar-original.webp">
+<link rel="icon" href="img/avatar-original.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1220; --bg2:#0e1829; --card:#111d31; --card2:#15233a; --edge:#1f2f4a;
+  --ink:#eef2f8; --muted:#9fb0c7; --dim:#8596ae;
+  --accent:#ff7a1a; --accent2:#ffa25e; --ok:#34c759; --warn:#f5c542; --bad:#ff5a4a;
+  --r:14px; --w:1160px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.05;text-wrap:balance}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(10,18,32,.86);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--edge)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:19px;letter-spacing:-.02em}
+.logo svg{width:28px;height:28px}
+.links{display:flex;align-items:center;gap:28px;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#1a0d02;font-weight:600;font-size:16px;padding:13px 22px;border-radius:999px;transition:background-color .2s,transform .2s var(--ease)}
+.btn:hover{background:var(--accent2)}.btn:active{transform:scale(.97)}
+.btn.sm{padding:9px 16px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--edge)}
+.btn.ghost:hover{background:var(--card)}
+.btn svg{width:16px;height:16px;transition:transform .2s var(--ease)}.btn:hover svg{transform:translateX(3px)}
+
+/* hero */
+.hero{padding:96px 0 104px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,1.6rem + 3.6vw,4.6rem)}
+.hero h1 span{color:var(--accent)}
+.hero p.sub{font-size:clamp(1.05rem,1rem + .35vw,1.25rem);color:var(--muted);max-width:34em;margin:24px 0 34px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.checks{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;font-size:15px;color:var(--muted);list-style:none}
+.checks li{display:flex;align-items:center;gap:8px}
+.checks svg{width:16px;height:16px;color:var(--accent);flex:none}
+.portrait{position:relative;justify-self:center;width:min(100%,420px)}
+.portrait img{width:100%;height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;background:var(--bg2)}
+.portrait::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px solid var(--edge)}
+.tag{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);white-space:nowrap;background:var(--card);border:1px solid var(--edge);padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(52,199,89,.2)}
+
+section{padding:104px 0}
+.sec-head{max-width:640px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(2rem,1.4rem + 2vw,3rem)}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:18px}
+
+/* project */
+.project{background:var(--bg2);border:1px solid var(--edge);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1.15fr 1fr}
+.shot{padding:28px;background:var(--bg);border-right:1px solid var(--edge)}
+.browser{background:#0b0f17;border:1px solid var(--edge);border-radius:12px;overflow:hidden}
+.bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#0f1521;border-bottom:1px solid var(--edge)}
+.bar i{width:10px;height:10px;border-radius:50%;background:#2a3446;display:block}
+.bar span{margin-left:10px;flex:1;background:#151c2a;border-radius:6px;font-size:12px;color:var(--dim);padding:4px 10px}
+.app{padding:18px;display:grid;gap:14px}
+.app-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.app-top b{font-size:15px;font-weight:600}.app-top small{display:block;color:var(--dim);font-size:12px}
+.badge{font-size:12px;font-weight:600;letter-spacing:.04em;padding:5px 10px;border-radius:999px;background:rgba(52,199,89,.15);color:var(--ok)}
+.badge.VIGILAR{background:rgba(245,197,66,.15);color:var(--warn)}.badge.ESPERAR{background:#1c2638;color:var(--muted)}.badge.PRECAUCION{background:rgba(255,90,74,.15);color:var(--bad)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tiles div{background:#111827;border-radius:8px;padding:10px 12px}
+.tiles small{display:block;color:var(--dim);font-size:11px}
+.tiles strong{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.up{color:var(--ok)}.down{color:var(--bad)}
+.app svg{width:100%;height:auto;display:block}
+.scrub{display:grid;gap:6px;padding-top:4px}
+.scrub label{font-size:13px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px;cursor:pointer}
+.info{padding:40px 40px 36px}
+.info .live{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);margin-bottom:16px}
+.info h3{font-size:clamp(1.8rem,1.4rem + 1.4vw,2.5rem)}
+.info p{color:var(--muted);margin:14px 0 22px}
+.feat{list-style:none;display:grid;gap:10px;margin-bottom:24px}
+.feat li{display:flex;gap:10px;align-items:flex-start}
+.feat svg{width:18px;height:18px;color:var(--accent);flex:none;margin-top:4px}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.stack span{font-size:13px;color:var(--muted);background:var(--card);border:1px solid var(--edge);border-radius:999px;padding:5px 11px}
+.proof{margin-top:22px;background:var(--card);border-radius:12px;padding:18px 20px;display:flex;gap:18px;align-items:center}
+.proof strong{font-size:34px;font-weight:600;letter-spacing:-.03em;color:var(--accent);line-height:1}
+.proof p{margin:0;font-size:14px;color:var(--muted)}
+.fine{font-size:13px;color:var(--dim);margin-top:14px}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge);border-radius:20px;overflow:hidden}
+.svc{background:var(--bg2);padding:34px 30px;transition:background-color .25s}
+.svc:hover{background:var(--card)}
+.svc svg{width:26px;height:26px;color:var(--accent);margin-bottom:22px}
+.svc h3{font-size:22px;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:16px}
+
+/* contact */
+.contact{background:linear-gradient(180deg,var(--bg2),var(--bg));border:1px solid var(--edge);border-radius:24px;padding:72px 40px;text-align:center}
+.contact h2{font-size:clamp(2rem,1.4rem + 2.2vw,3.2rem);max-width:18em;margin:0 auto}
+.contact p{color:var(--muted);margin:16px auto 32px;max-width:36em}
+.contact .cta{justify-content:center}
+footer{padding:40px 0 56px;color:var(--dim);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* entrances: visible by default, JS adds the rise */
+.js .rv{opacity:0;transform:translateY(20px)}
+.js .rv.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
+
+@media (max-width:900px){
+  .hero{padding:56px 0 72px}
+  .hero .wrap,.project{grid-template-columns:1fr}
+  .portrait{width:min(78%,320px);order:-1}
+  .shot{border-right:0;border-bottom:1px solid var(--edge);padding:16px}
+  .info{padding:28px 22px}
+  .services{grid-template-columns:1fr}
+  .links a:not(.btn){display:none}
+  section{padding:72px 0}
+  .contact{padding:52px 22px}
+  .proof{flex-direction:column;align-items:flex-start;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{transform:none}
+  .js .rv.in{transition:opacity .4s linear}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Sigilock, inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10 14v-3.5a6 6 0 0 1 12 0V14" fill="none" stroke="#ff7a1a" stroke-width="3" stroke-linecap="round"/><rect x="6" y="13" width="20" height="16" rx="5" fill="#ff7a1a"/><circle cx="12.5" cy="21" r="1.8" fill="#0a1220"/><circle cx="19.5" cy="21" r="1.8" fill="#0a1220"/></svg>
+      Sigilock
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="#proyecto">Proyecto</a><a href="#servicios">Servicios</a>
+      <a class="btn sm" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1 class="rv">Herramientas con IA que <span>sí funcionan</span>.</h1>
+      <p class="sub rv" style="--d:80ms">Soy Juan. Diseño y construyo aplicaciones web, automatizaciones y agentes de IA para negocios, y los pruebo como si alguien quisiera romperlos.</p>
+      <div class="cta rv" style="--d:160ms">
+        <a class="btn" href="#contacto">Cuéntame tu proyecto <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="#proyecto">Ver Meat Signal</a>
+      </div>
+      <ul class="checks rv" style="--d:240ms">
+        <li><svg><use href="#i-check"/></svg>Respondo en 24 horas</li>
+        <li><svg><use href="#i-check"/></svg>Español e inglés</li>
+        <li><svg><use href="#i-check"/></svg>Trabajas directo conmigo</li>
+      </ul>
+    </div>
+    <figure class="portrait rv" style="--d:120ms">
+      <img src="img/avatar-original.webp" width="1024" height="1024" alt="Ilustración de Juan con su mascota Sigi, un robot candado">
+      <figcaption class="tag"><span class="dot"></span>República Dominicana</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="proyecto">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Proyecto destacado</h2>
+      <p>Un producto que construí de principio a fin y que está en producción.</p>
+    </div>
+
+    <article class="project rv">
+      <div class="shot">
+        <div class="browser" data-ui>
+          <div class="bar"><i></i><i></i><i></i><span>meatsignal.com/signals</span></div>
+          <div class="app">
+            <div class="app-top">
+              <div><b>Strip Loin 1x1 (175)</b><small id="aWeek">Semana del 20 jul 2026 · USDA</small></div>
+              <span class="badge COMPRAR" id="aSig">COMPRAR</span>
+            </div>
+            <div class="tiles">
+              <div><small>Precio ese día</small><strong id="aNow">$6.54</strong></div>
+              <div><small>8 semanas después</small><strong id="aLater">$8.44</strong></div>
+              <div><small>Cambio</small><strong id="aChg" class="up">+29%</strong></div>
+            </div>
+            <svg id="chart" viewBox="0 0 640 260" role="img" aria-label="Precio semanal del Strip Loin de abril a octubre de 2026 con la semana elegida y el precio ocho semanas después"></svg>
+            <div class="scrub">
+              <label for="wk">Mueve la semana y compara la señal con lo que pasó después</label>
+              <input id="wk" type="range" min="0" max="17" value="12">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info">
+        <span class="live"><span class="dot"></span>En producción · meatsignal.com</span>
+        <h3>Meat Signal</h3>
+        <p>Plataforma de inteligencia de precios para importadores, distribuidores y mayoristas de carne. Analiza cada semana más de 1 millón de precios del USDA y da una señal clara por corte: comprar, vigilar o esperar.</p>
+        <ul class="feat">
+          <li><svg><use href="#i-check"/></svg>Señales semanales para res y cerdo, con modelo propio</li>
+          <li><svg><use href="#i-check"/></svg>Precios de res, cerdo, pollo y pavo en un solo panel</li>
+          <li><svg><use href="#i-check"/></svg>Alertas de precio, favoritos y reportes por correo</li>
+          <li><svg><use href="#i-check"/></svg>Planes de suscripción con prueba gratis</li>
+        </ul>
+        <div class="stack"><span>React</span><span>Supabase</span><span>Stripe</span><span>Python</span><span>USDA API</span><span>IA</span></div>
+        <a class="btn" href="https://meatsignal.com" target="_blank" rel="noopener">Visitar sitio <svg><use href="#i-arrow"/></svg></a>
+        <div class="proof">
+          <strong>~80%</strong>
+          <p>de acierto de la señal COMPRAR en la prueba fuera de muestra 2022–2026 (res 80.4 %, cerdo 80.6 %). No acierta siempre, y por eso lo decimos.</p>
+        </div>
+      </div>
+    </article>
+    <p class="fine">El panel de la izquierda usa precios reales del Strip Loin publicados por el USDA y las señales de la API pública de meatsignal.com.</p>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Lo que puedo construir para tu negocio</h2>
+      <p>Casi todo empieza con un proceso manual que te quita horas cada semana.</p>
+    </div>
+    <div class="services rv">
+      <div class="svc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M18.4 5.6l-2.1 2.1M21 12h-3"/><circle cx="12" cy="14" r="5"/></svg>
+        <h3>Automatización con IA</h3>
+        <p>Asistentes que responden a tus clientes, leen documentos y arman reportes solos. Tú intervienes solo cuando hace falta una persona.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h3M8 17h6"/></svg>
+        <h3>Aplicaciones y paneles web</h3>
+        <p>Herramientas a la medida: paneles con tus datos en tiempo real, portales para clientes y sistemas internos.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3>Revisión de seguridad</h3>
+        <p>Cuentas, accesos, contraseñas y herramientas: encuentro y cierro los huecos más comunes antes de que alguien los aproveche.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact rv">
+      <h2>¿Tienes un proceso que te quita tiempo?</h2>
+      <p>Cuéntamelo y en 24 horas te digo si se puede automatizar, cómo lo haría y cuánto costaría.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:contacto@sigilock.com">contacto@sigilock.com <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="https://www.instagram.com/sigilock" target="_blank" rel="noopener">Instagram @sigilock</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Sigilock · Juan</span><span>Verifica dos veces, confía cero.</span></div></footer>
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+setTimeout(()=>document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')),3000);
+
+// Strip Loin 1x1 weekly prices (USDA) and Meat Signal signals, from the public meatsignal.com API
+const D=[["27 abr",8.77,"VIGILAR"],["4 may",8.96,"VIGILAR"],["11 may",9.10,"VIGILAR"],["18 may",8.66,"PRECAUCION"],["25 may",9.27,"VIGILAR"],["1 jun",9.36,"PRECAUCION"],["8 jun",8.27,"ESPERAR"],["15 jun",9.35,"VIGILAR"],["22 jun",8.72,"VIGILAR"],["29 jun",7.79,"ESPERAR"],["6 jul",6.96,"ESPERAR"],["13 jul",6.37,"VIGILAR"],["20 jul",6.54,"COMPRAR"],["27 jul",6.32,"VIGILAR"],["3 ago",6.69,"ESPERAR"],["10 ago",6.85,"ESPERAR"],["17 ago",8.57,"ESPERAR"],["24 ago",8.63,"ESPERAR"],["31 ago",6.64,"VIGILAR"],["7 sep",7.04,"ESPERAR"],["14 sep",8.44,"ESPERAR"],["21 sep",7.29,"ESPERAR"],["28 sep",7.36,"ESPERAR"],["5 oct",7.16,"ESPERAR"],["12 oct",6.97,"VIGILAR"],["19 oct",7.09,"ESPERAR"]];
+const H=260,X0=40,X1=630,Y0=12,Y1=226,lo=6,hi=9.6,px=i=>X0+(X1-X0)*i/(D.length-1),py=v=>Y1-(Y1-Y0)*(v-lo)/(hi-lo);
+const svg=document.getElementById('chart'),ns='http://www.w3.org/2000/svg';
+const el=(t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e};
+[6,7,8,9].forEach(v=>{el('line',{x1:X0,x2:X1,y1:py(v),y2:py(v),stroke:'#1f2a3d'});el('text',{x:0,y:py(v)+4,fill:'#8596ae','font-size':12,'font-family':'Geist'}).textContent='$'+v});
+const win=el('rect',{y:Y0,height:Y1-Y0,fill:'#ff7a1a','fill-opacity':.1,rx:4});
+const line='M'+D.map((d,i)=>px(i)+','+py(d[1])).join('L');
+el('path',{d:line+`L${X1},${Y1}L${X0},${Y1}Z`,fill:'#ff7a1a','fill-opacity':.07});
+el('path',{d:line,fill:'none',stroke:'#ff7a1a','stroke-width':2.5,'stroke-linejoin':'round'});
+D.forEach((d,i)=>{if(d[2]==='COMPRAR')el('circle',{cx:px(i),cy:py(d[1]),r:4,fill:'#34c759'})});
+[0,25].forEach(i=>el('text',{x:px(i),y:H-6,fill:'#8596ae','font-size':12,'font-family':'Geist','text-anchor':i?'end':'start'}).textContent=D[i][0]);
+const a=el('circle',{r:6,fill:'#0a1220',stroke:'#eef2f8','stroke-width':2.5}),b=el('circle',{r:6,fill:'#ff7a1a',stroke:'#0a1220','stroke-width':2});
+const $=id=>document.getElementById(id),wk=$('wk'),names={PRECAUCION:'PRECAUCIÓN'};
+function show(i){const n=D[i],l=D[i+8],c=Math.round((l[1]-n[1])/n[1]*100);
+  $('aWeek').textContent='Semana del '+n[0]+' 2026 · USDA';$('aSig').textContent=names[n[2]]||n[2];$('aSig').className='badge '+n[2];
+  $('aNow').textContent='$'+n[1].toFixed(2);$('aLater').textContent='$'+l[1].toFixed(2);
+  $('aChg').textContent=(c>0?'+':'')+c+'%';$('aChg').className=c>=0?'up':'down';
+  win.setAttribute('x',px(i));win.setAttribute('width',px(i+8)-px(i));a.setAttribute('cx',px(i));a.setAttribute('cy',py(n[1]));b.setAttribute('cx',px(i+8));b.setAttribute('cy',py(l[1]));}
+wk.addEventListener('input',()=>show(+wk.value));show(12);
+</script>
+</body>
+</html>
