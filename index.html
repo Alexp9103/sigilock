@@ -193,18 +193,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
           <div class="bar"><i></i><i></i><i></i><span>meatsignal.com/signals</span></div>
           <div class="app">
             <div class="app-top">
-              <div><b>Strip Loin 1x1 (175)</b><small id="aWeek">Semana del 20 jul 2026 · USDA</small></div>
+              <div><b>Butt tender · punta del solomillo (191A)</b><small id="aWeek">Semana del 20 jul 2026 · USDA</small></div>
               <span class="badge COMPRAR" id="aSig">COMPRAR</span>
             </div>
             <div class="tiles">
-              <div><small>Precio ese día</small><strong id="aNow">$6.54</strong></div>
-              <div><small>8 semanas después</small><strong id="aLater">$8.44</strong></div>
-              <div><small>Cambio</small><strong id="aChg" class="up">+29%</strong></div>
+              <div><small>Precio ese día</small><strong id="aNow">$14.24</strong></div>
+              <div><small>8 semanas después</small><strong id="aLater">$15.58</strong></div>
+              <div><small>Cambio</small><strong id="aChg" class="up">+9.4%</strong></div>
             </div>
-            <svg id="chart" viewBox="0 0 640 260" role="img" aria-label="Precio semanal del Strip Loin de abril a octubre de 2026 con la semana elegida y el precio ocho semanas después"></svg>
+            <svg id="chart" viewBox="0 0 640 260" role="img" aria-label="Precio semanal del butt tender de julio a octubre de 2026 con la semana elegida y el precio ocho semanas después"></svg>
             <div class="scrub">
               <label for="wk">Mueve la semana y compara la señal con lo que pasó después</label>
-              <input id="wk" type="range" min="0" max="17" value="12">
+              <input id="wk" type="range" min="0" max="7" value="2">
             </div>
           </div>
         </div>
@@ -222,12 +222,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
         <div class="stack"><span>React</span><span>Supabase</span><span>Stripe</span><span>Python</span><span>USDA API</span><span>IA</span></div>
         <a class="btn" href="https://meatsignal.com" target="_blank" rel="noopener">Visitar sitio <svg><use href="#i-arrow"/></svg></a>
         <div class="proof">
-          <strong>~80%</strong>
-          <p>de acierto de la señal COMPRAR en la prueba fuera de muestra 2022–2026 (res 80.4 %, cerdo 80.6 %). No acierta siempre, y por eso lo decimos.</p>
+          <strong>8 de 10</strong>
+          <p>señales de COMPRAR de res acertaron en la prueba con datos históricos 2022–2026 (271 señales, medidas a 8 semanas). No acierta siempre, y por eso lo decimos.</p>
         </div>
       </div>
     </article>
-    <p class="fine">El panel de la izquierda usa precios reales del Strip Loin publicados por el USDA y las señales de la API pública de meatsignal.com.</p>
+    <p class="fine">El panel usa precios reales del USDA para el butt tender (IMPS 191A). Las señales son de la prueba con datos históricos: se calcularon después, no se enviaron en vivo esas semanas.</p>
   </div>
 </section>
 
@@ -279,26 +279,26 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 setTimeout(()=>document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')),3000);
 
-// Strip Loin 1x1 weekly prices (USDA) and Meat Signal signals, from the public meatsignal.com API
-const D=[["27 abr",8.77,"VIGILAR"],["4 may",8.96,"VIGILAR"],["11 may",9.10,"VIGILAR"],["18 may",8.66,"PRECAUCION"],["25 may",9.27,"VIGILAR"],["1 jun",9.36,"PRECAUCION"],["8 jun",8.27,"ESPERAR"],["15 jun",9.35,"VIGILAR"],["22 jun",8.72,"VIGILAR"],["29 jun",7.79,"ESPERAR"],["6 jul",6.96,"ESPERAR"],["13 jul",6.37,"VIGILAR"],["20 jul",6.54,"COMPRAR"],["27 jul",6.32,"VIGILAR"],["3 ago",6.69,"ESPERAR"],["10 ago",6.85,"ESPERAR"],["17 ago",8.57,"ESPERAR"],["24 ago",8.63,"ESPERAR"],["31 ago",6.64,"VIGILAR"],["7 sep",7.04,"ESPERAR"],["14 sep",8.44,"ESPERAR"],["21 sep",7.29,"ESPERAR"],["28 sep",7.36,"ESPERAR"],["5 oct",7.16,"ESPERAR"],["12 oct",6.97,"VIGILAR"],["19 oct",7.09,"ESPERAR"]];
-const H=260,X0=40,X1=630,Y0=12,Y1=226,lo=6,hi=9.6,px=i=>X0+(X1-X0)*i/(D.length-1),py=v=>Y1-(Y1-Y0)*(v-lo)/(hi-lo);
+// Butt tender (191A) weekly prices (USDA) and backtest signals, verified in the Meat Signal data on 2026-11-01
+const D=[["6 jul",14.48,"ESPERAR"],["13 jul",14.22,"COMPRAR"],["20 jul",14.24,"COMPRAR"],["27 jul",14.09,"COMPRAR"],["3 ago",14.27,"COMPRAR"],["10 ago",14.55,"ESPERAR"],["17 ago",15.44,"ESPERAR"],["24 ago",15.49,"ESPERAR"],["31 ago",15.82,"ESPERAR"],["7 sep",15.52,"ESPERAR"],["14 sep",15.58,"ESPERAR"],["21 sep",15.85,"ESPERAR"],["28 sep",15.86,"ESPERAR"],["5 oct",15.46,"ESPERAR"],["12 oct",15.66,"ESPERAR"],["19 oct",15.54,"ESPERAR"]];
+const H=260,X0=40,X1=630,Y0=12,Y1=226,lo=13.8,hi=16.2,px=i=>X0+(X1-X0)*i/(D.length-1),py=v=>Y1-(Y1-Y0)*(v-lo)/(hi-lo);
 const svg=document.getElementById('chart'),ns='http://www.w3.org/2000/svg';
 const el=(t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e};
-[6,7,8,9].forEach(v=>{el('line',{x1:X0,x2:X1,y1:py(v),y2:py(v),stroke:'#1f2a3d'});el('text',{x:0,y:py(v)+4,fill:'#8596ae','font-size':12,'font-family':'Geist'}).textContent='$'+v});
+[14,15,16].forEach(v=>{el('line',{x1:X0,x2:X1,y1:py(v),y2:py(v),stroke:'#1f2a3d'});el('text',{x:0,y:py(v)+4,fill:'#8596ae','font-size':12,'font-family':'Geist'}).textContent='$'+v});
 const win=el('rect',{y:Y0,height:Y1-Y0,fill:'#ff7a1a','fill-opacity':.1,rx:4});
 const line='M'+D.map((d,i)=>px(i)+','+py(d[1])).join('L');
 el('path',{d:line+`L${X1},${Y1}L${X0},${Y1}Z`,fill:'#ff7a1a','fill-opacity':.07});
 el('path',{d:line,fill:'none',stroke:'#ff7a1a','stroke-width':2.5,'stroke-linejoin':'round'});
 D.forEach((d,i)=>{if(d[2]==='COMPRAR')el('circle',{cx:px(i),cy:py(d[1]),r:4,fill:'#34c759'})});
-[0,25].forEach(i=>el('text',{x:px(i),y:H-6,fill:'#8596ae','font-size':12,'font-family':'Geist','text-anchor':i?'end':'start'}).textContent=D[i][0]);
+[0,D.length-1].forEach(i=>el('text',{x:px(i),y:H-6,fill:'#8596ae','font-size':12,'font-family':'Geist','text-anchor':i?'end':'start'}).textContent=D[i][0]);
 const a=el('circle',{r:6,fill:'#0a1220',stroke:'#eef2f8','stroke-width':2.5}),b=el('circle',{r:6,fill:'#ff7a1a',stroke:'#0a1220','stroke-width':2});
 const $=id=>document.getElementById(id),wk=$('wk'),names={PRECAUCION:'PRECAUCIÓN'};
-function show(i){const n=D[i],l=D[i+8],c=Math.round((l[1]-n[1])/n[1]*100);
+function show(i){const n=D[i],l=D[i+8],c=Math.round((l[1]-n[1])/n[1]*1000)/10;
   $('aWeek').textContent='Semana del '+n[0]+' 2026 · USDA';$('aSig').textContent=names[n[2]]||n[2];$('aSig').className='badge '+n[2];
   $('aNow').textContent='$'+n[1].toFixed(2);$('aLater').textContent='$'+l[1].toFixed(2);
   $('aChg').textContent=(c>0?'+':'')+c+'%';$('aChg').className=c>=0?'up':'down';
   win.setAttribute('x',px(i));win.setAttribute('width',px(i+8)-px(i));a.setAttribute('cx',px(i));a.setAttribute('cy',py(n[1]));b.setAttribute('cx',px(i+8));b.setAttribute('cy',py(l[1]));}
-wk.addEventListener('input',()=>show(+wk.value));show(12);
+wk.addEventListener('input',()=>show(+wk.value));show(2);
 </script>
 </body>
 </html>
