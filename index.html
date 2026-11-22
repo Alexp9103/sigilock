@@ -3,122 +3,290 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sigilock · IA y ciberseguridad</title>
-<meta name="description" content="Juan explica hackeos y estafas en 60 segundos y construye herramientas con IA, automatizaciones y aplicaciones web para negocios.">
-<meta property="og:title" content="Sigilock · IA y ciberseguridad">
-<meta property="og:description" content="Hackeos y estafas explicados en 60 s. Herramientas con IA para negocios.">
+<title>Sigilock · IA y ciberseguridad para empresas</title>
+<meta name="description" content="Juan Alexander ayuda a empresas a ahorrar horas con automatizaciones de IA y a protegerse de estafas digitales. Empieza con un diagnóstico de una semana.">
+<meta property="og:title" content="Sigilock · IA y ciberseguridad para empresas">
+<meta property="og:description" content="Automatizaciones con IA y protección contra estafas para negocios. Empieza con un diagnóstico de una semana.">
 <meta property="og:image" content="img/avatar-original.webp">
 <link rel="icon" href="img/avatar-original.webp">
+<link rel="canonical" href="https://sigilock.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  /* Diseño basado en "Bentolio" de Abdul Rauf (Figma Community). Tokens del archivo de Figma. */
-  :root{--background:#0a1220;--primary:#111d31;--secondary:#ff7a1a;--text:#eef2f8;--muted:#9fb0c7;--line:#1f2f4a;--rounded:20px;--gap:24px}
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--background);color:var(--text);font-family:Geist,system-ui,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1440px;margin:0 auto;padding:var(--gap);display:grid;gap:var(--gap);
-    grid-template-columns:565fr 330fr 447fr;grid-template-areas:"head head head" "intro photo work" "about contact work" "about contact social"}
-  .card{background:var(--primary);border-radius:var(--rounded);position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
-  header{grid-area:head;height:101px;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
-  .logo{font-size:25px;text-transform:uppercase;letter-spacing:.01em}
-  .logo i{font-weight:300}.logo b{font-weight:500}
-  nav{display:flex;gap:48px;font-size:16px;text-transform:uppercase}
-  nav a:hover,.soc a:hover{text-decoration:underline;text-underline-offset:4px}
-  .intro{grid-area:intro;min-height:479px;padding:24px;display:flex;align-items:center}
-  .intro h1{font-size:56px;line-height:1;font-weight:700;max-width:475px;letter-spacing:-.01em}
-  .intro h1 i{font-weight:300;font-style:normal;color:var(--secondary)}
-  .intro .flower{position:absolute;left:416px;top:34px;width:119px;height:119px}
-  .intro .tag{position:absolute;left:24px;bottom:28px;font-size:18px;color:var(--muted)}
-  .photo{grid-area:photo;background:#0e1829}
-  .photo{display:flex;align-items:center;justify-content:center;padding:28px}
-  .photo img{width:100%;max-width:300px;aspect-ratio:1;height:auto;object-fit:contain;display:block;border-radius:50%}
-  .work{grid-area:work;padding:34px 24px 24px}
-  .item{display:block;border-bottom:2px solid var(--line);padding:0 0 26px;margin-bottom:26px}
-  .item:last-child{border:0;margin:0;padding:0}
-  .item h3{font-size:25px;font-weight:500;display:flex;justify-content:space-between;align-items:center}
-  .item p{font-size:16px;margin-top:6px;line-height:1.35;color:var(--muted)}
-  .item .shot{margin-top:24px;height:269px;border-radius:16px;overflow:hidden;background:#111}
-  .item .shot img{width:100%;height:100%;object-fit:cover;display:block}
-  .item .go{filter:invert(1);width:26px;height:26px;transition:transform .2s cubic-bezier(.22,1,.36,1)}
-  .item:hover .go,.contact:hover .arrow{transform:translate(3px,-3px)}
-  .about{grid-area:about;min-height:351px;padding:32px 24px}
-  .about p{font-size:20px;line-height:25px;max-width:330px;margin-top:70px}
-  .contact{grid-area:contact;background:var(--secondary);color:#1a0d02;min-height:351px;padding:30px 24px;display:flex;flex-direction:column;justify-content:space-between}
-  .contact .top{display:flex;justify-content:space-between;align-items:flex-end;font-size:15px;line-height:1.25}
-  .contact .arrow{width:38px;height:38px;transition:transform .2s cubic-bezier(.22,1,.36,1)}
-  .contact h2{font-size:55px;font-weight:500;line-height:1}
-  .contact .mail{font-size:18px;margin-top:10px}
-  .social{grid-area:social;height:101px;display:flex;align-items:center;justify-content:center}
-  .soc{display:flex;gap:56px;font-size:15px;text-transform:uppercase}
-  footer{color:var(--muted);max-width:1440px;margin:0 auto;padding:0 var(--gap) 28px;font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  @media (max-width:1100px){
-    .wrap{grid-template-columns:1fr 1fr;grid-template-areas:"head head" "intro intro" "photo work" "about contact" "social social"}
-    .photo{min-height:360px}
+  :root{
+    --paper:oklch(96.5% .012 75);
+    --paper-2:oklch(93.5% .016 70);
+    --ink:oklch(22% .015 60);
+    --ink-2:oklch(42% .02 60);
+    --rule:oklch(86% .02 65);
+    --accent:oklch(60% .17 42);
+    --accent-ink:oklch(45% .15 40);
+    --night:oklch(21% .03 255);
+    --night-2:oklch(26% .03 255);
+    --night-ink:oklch(93% .01 255);
+    --display:"Instrument Serif",Georgia,serif;
+    --body:Geist,system-ui,sans-serif;
+    --ease:cubic-bezier(.22,1,.36,1);
   }
-  @media (max-width:700px){
-    :root{--gap:16px}
-    .wrap{grid-template-columns:1fr;grid-template-areas:"head" "intro" "photo" "work" "about" "contact" "social"}
-    header{padding:0 18px;height:64px}.logo{font-size:16px}nav{gap:12px;font-size:11px}
-    .intro{min-height:360px}.intro h1{font-size:40px}.intro .flower{left:auto;right:20px;width:80px;height:80px}
-    .photo{min-height:auto}.contact h2{font-size:44px}.soc{gap:24px}
-    .about p{margin-top:40px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:clamp(16px,1.05vw + 12px,18px);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .shell{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+  .eyebrow{font-size:12.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+  h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.012em}
+  h2{font-size:clamp(34px,4.4vw,56px);line-height:1}
+  h2 em,h1 em{font-style:italic;color:var(--accent)}
+
+  /* nav */
+  .mast{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid var(--ink)}
+  .word{font-weight:600;letter-spacing:.14em;font-size:13px;text-decoration:none}
+  nav{display:flex;gap:clamp(14px,3vw,32px);font-size:14px;align-items:center}
+  nav a{text-decoration:none;color:var(--ink-2)}
+  nav a:hover{color:var(--ink)}
+  nav .pill{color:var(--ink);border:1px solid var(--ink);border-radius:99px;padding:6px 14px;transition:background .2s var(--ease),color .2s var(--ease)}
+  nav .pill:hover{background:var(--ink);color:var(--paper)}
+  @media (max-width:560px){nav .hide-sm{display:none}}
+
+  /* hero */
+  .hero{display:grid;gap:clamp(32px,5vw,64px);padding:clamp(48px,8vw,104px) 0 clamp(48px,7vw,88px);grid-template-columns:minmax(0,1fr)}
+  @media (min-width:900px){.hero{grid-template-columns:minmax(0,7fr) minmax(0,4fr);align-items:end}}
+  h1{font-size:clamp(46px,7.6vw,100px);line-height:.94;margin-top:20px}
+  .lede{color:var(--ink-2);max-width:40ch;margin-top:28px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:500;padding:15px 22px;border-radius:99px;transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn svg{width:17px;height:17px}
+  .btn.accent{background:var(--accent);color:oklch(18% .03 40)}
+  .link{color:var(--ink-2);text-underline-offset:4px;font-size:.95em}
+  .link:hover{color:var(--ink)}
+  .portrait{position:relative;max-width:360px;justify-self:start}
+  @media (min-width:900px){.portrait{justify-self:end}}
+  .portrait img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;background:var(--night)}
+  .portrait figcaption{margin-top:14px;font-size:13px;color:var(--ink-2);display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--rule);padding-top:10px}
+
+  /* sections */
+  section.block{padding:clamp(56px,8vw,104px) 0;border-top:1px solid var(--ink)}
+  .head{display:grid;gap:16px 48px;grid-template-columns:minmax(0,1fr);margin-bottom:clamp(32px,5vw,56px)}
+  @media (min-width:900px){.head{grid-template-columns:200px minmax(0,1fr)}}
+  .head p{color:var(--ink-2);max-width:56ch;margin-top:14px}
+
+  /* offer */
+  .offer{display:grid;gap:0;grid-template-columns:minmax(0,1fr);border-top:1px solid var(--rule)}
+  @media (min-width:900px){.offer{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .tier{padding:28px 0;border-bottom:1px solid var(--rule)}
+  @media (min-width:900px){.tier{padding:32px 28px 32px 0;border-bottom:0}.tier+.tier{padding-left:28px;border-left:1px solid var(--rule)}}
+  .tier .step{font-size:13px;color:var(--accent-ink);font-weight:500}
+  .tier h3{font-size:30px;line-height:1.05;margin:8px 0 6px}
+  .tier .when{font-size:13px;color:var(--ink-2);letter-spacing:.04em}
+  .tier ul{list-style:none;margin-top:18px}
+  .tier li{padding:7px 0 7px 22px;position:relative;font-size:.95em}
+  .tier li::before{content:"";position:absolute;left:0;top:15px;width:10px;height:1.5px;background:var(--accent)}
+  .tier.lead{background:var(--paper-2);padding:28px 22px;border-radius:6px;border-bottom:0;margin-bottom:8px}
+  @media (min-width:900px){.tier.lead{margin:-12px 0 -12px;padding:44px 28px}}
+  .tier.lead .tag{display:inline-block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:3px 9px;border-radius:99px;margin-bottom:12px}
+
+  /* case */
+  .case{display:grid;gap:32px 56px;grid-template-columns:minmax(0,1fr);align-items:center}
+  @media (min-width:900px){.case{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}}
+  .case .stat{margin:0;font-family:var(--display);font-size:clamp(96px,16vw,200px);line-height:.85;color:var(--accent)}
+  .case .stat small{font-family:var(--body);display:block;font-size:14px;color:var(--ink-2);margin-top:16px;max-width:30ch;line-height:1.45}
+  .case h3{font-size:clamp(30px,3.4vw,42px);line-height:1.05}
+  .case p{color:var(--ink-2);margin-top:14px;max-width:52ch}
+  .case dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin-top:24px;padding-top:20px;border-top:1px solid var(--rule);font-size:.95em}
+  .case dt{color:var(--ink-2)}
+  .note{font-size:13px;color:var(--ink-2);margin-top:18px}
+
+  /* process */
+  .process{list-style:none;counter-reset:p;display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+  @media (min-width:900px){.process{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}}
+  .process li{counter-increment:p;padding:24px 0;border-top:1px solid var(--ink)}
+  .process li::before{content:counter(p,decimal-leading-zero);font-family:var(--display);font-size:56px;line-height:1;color:var(--accent);display:block;margin-bottom:14px}
+  .process b{font-weight:500;display:block;margin-bottom:6px}
+  .process span{color:var(--ink-2)}
+
+  /* about */
+  .about{display:grid;gap:32px 56px;grid-template-columns:minmax(0,1fr)}
+  @media (min-width:900px){.about{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}}
+  .about .big{font-family:var(--display);font-size:clamp(28px,3.2vw,40px);line-height:1.15}
+  .about .big em{color:var(--accent)}
+  .about p{color:var(--ink-2);margin-top:16px;max-width:52ch}
+  .reel{display:block;text-decoration:none;border-radius:6px;overflow:hidden;background:var(--night);color:var(--night-ink)}
+  .reel img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .6s var(--ease)}
+  .reel:hover img{transform:scale(1.03)}
+  .reel div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;font-size:14px}
+  .reel svg{width:16px;height:16px;flex:none}
+
+  /* close */
+  .close{background:var(--night);color:var(--night-ink)}
+  .close .shell{padding-top:clamp(56px,8vw,104px);padding-bottom:clamp(56px,8vw,104px);display:grid;gap:32px;grid-template-columns:minmax(0,1fr)}
+  @media (min-width:900px){.close .shell{grid-template-columns:minmax(0,7fr) minmax(0,4fr);align-items:end}}
+  .close h2{max-width:14ch}
+  .close p{opacity:.72;margin-top:16px;max-width:46ch}
+  .close .contacts{display:grid;gap:14px;justify-items:start}
+  .close .mail{color:var(--night-ink);opacity:.8;text-underline-offset:4px;font-size:.95em}
+  footer{background:var(--night);color:var(--night-ink)}
+  footer .shell{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding-top:20px;padding-bottom:28px;border-top:1px solid var(--night-2);font-size:13px}
+  footer .soc{display:flex;gap:20px}
+  footer a{text-decoration:none;opacity:.75}
+  footer a:hover{opacity:1}
+  footer span{opacity:.6}
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero>*{animation:rise .9s var(--ease) both}
+    .hero>*:nth-child(2){animation-delay:.14s}
+    @keyframes rise{from{opacity:0;transform:translateY(14px)}}
   }
 </style>
 </head>
 <body>
-<main class="wrap">
-  <header class="card">
-    <a class="logo" href="#"><i>Sigi</i><b>lock</b></a>
-    <nav><a href="#trabajo">Proyectos</a><a href="#sobre-mi">Sobre mí</a><a href="#contacto">Contacto</a></nav>
+
+<div class="shell">
+  <header class="mast">
+    <a class="word" href="/">SIGILOCK</a>
+    <nav>
+      <a class="hide-sm" href="#servicio">Servicio</a>
+      <a class="hide-sm" href="#caso">Caso</a>
+      <a class="hide-sm" href="#sobre-mi">Sobre mí</a>
+      <a class="pill" href="#contacto">Contacto</a>
+    </nav>
   </header>
 
-  <section class="card intro">
-    <img class="flower" src="img/bento/flower.svg" alt="" style="filter:invert(58%) sepia(90%) saturate(1800%) hue-rotate(345deg) brightness(102%)">
-    <h1>Hackeos y estafas, <i>explicados</i> en 60 segundos</h1>
-    <p class="tag">Desconfía primero. Verifica siempre.</p>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">IA y ciberseguridad para empresas</p>
+      <h1>Menos horas perdidas. <em>Menos huecos</em> por donde te estafen.</h1>
+      <p class="lede">Ayudo a negocios a automatizar con IA el trabajo repetitivo y a cerrar las puertas por donde entran las estafas digitales. Todo empieza con un diagnóstico de una semana.</p>
+      <div class="actions">
+        <a class="btn" href="https://ig.me/m/sigilock">Pedir un diagnóstico<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 14 14 4M6 4h8v8"/></svg></a>
+        <a class="link" href="#servicio">Ver cómo funciona</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="img/avatar-original.webp" alt="Ilustración de Juan Alexander con Sigi, la mascota de Sigilock" width="360" height="360">
+      <figcaption><span>Juan Alexander</span><span>República Dominicana</span></figcaption>
+    </figure>
+  </section>
+</div>
+
+<main class="shell">
+
+  <section class="block" id="servicio">
+    <div class="head">
+      <p class="eyebrow">Servicio</p>
+      <div>
+        <h2>Primero entiendo tu negocio. <em>Después</em> construyo.</h2>
+        <p>Nada de vender software que no necesitas. El diagnóstico te dice dónde se van las horas y dónde estás expuesto; tú decides qué hacer con eso.</p>
+      </div>
+    </div>
+    <div class="offer">
+      <div class="tier lead">
+        <span class="tag">Empieza aquí</span>
+        <p class="step">01</p>
+        <h3>Diagnóstico de IA</h3>
+        <p class="when">Una semana</p>
+        <ul>
+          <li>Conversación de 45 minutos sobre cómo trabaja tu equipo</li>
+          <li>Mapa de las tareas que se repiten y cuánto tiempo comen</li>
+          <li>Revisión de tus canales: dónde podrían copiarte o engañar a tus clientes</li>
+          <li>Informe con las 3 automatizaciones que más horas te devuelven</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <p class="step">02</p>
+        <h3>Implementación</h3>
+        <p class="when">Según el proyecto</p>
+        <ul>
+          <li>Asistentes que responden a tus clientes con tus datos</li>
+          <li>Reportes y paneles que se arman solos</li>
+          <li>Flujos que conectan WhatsApp, correo y hojas de cálculo</li>
+          <li>Cada pieza probada como si alguien quisiera romperla</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <p class="step">03</p>
+        <h3>Acompañamiento</h3>
+        <p class="when">Mensual</p>
+        <ul>
+          <li>Ajustes cuando tu negocio cambia</li>
+          <li>Monitoreo de que todo siga funcionando</li>
+          <li>Alertas de las estafas nuevas que afectan a tu sector</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <div class="card photo"><img src="img/avatar-original.webp" alt="Ilustración de Juan, creador de Sigilock"></div>
-
-  <section class="card work" id="trabajo">
-    <a class="item" href="https://www.instagram.com/sigilock/" target="_blank" rel="noopener">
-      <h3>Reels de ciberseguridad <img class="go" src="img/bento/arrow-sm.svg" alt=""></h3>
-      <div class="shot"><img src="img/bento/reel-ceo.jpg" alt="Fotograma del reel sobre la estafa del CEO falso hecho con IA"></div>
-    </a>
-    <a class="item" href="https://meatsignal.com" target="_blank" rel="noopener">
-      <h3>Meat Signal <img class="go" src="img/bento/arrow-sm.svg" alt=""></h3>
-      <p>Plataforma de precios de carne que desarrollé para un cliente. 8 de 10 señales de compra de res acertaron en la prueba con datos históricos 2022–2026.</p>
-    </a>
-    <a class="item" href="#contacto">
-      <h3>Automatización con IA <img class="go" src="img/bento/arrow-sm.svg" alt=""></h3>
-      <p>Asistentes, reportes y paneles a la medida para tu negocio.</p>
-    </a>
-    <a class="item" href="#contacto">
-      <h3>Revisión de seguridad <img class="go" src="img/bento/arrow-sm.svg" alt=""></h3>
-      <p>Encuentro y cierro los huecos más comunes antes de que alguien los aproveche.</p>
-    </a>
+  <section class="block" id="caso">
+    <div class="head">
+      <p class="eyebrow">Caso real</p>
+      <div><h2>Lo que construyo <em>funciona</em> con datos reales.</h2></div>
+    </div>
+    <div class="case">
+      <p class="stat">8/10<small>señales de compra de res acertaron en la prueba con datos históricos 2022–2026.</small></p>
+      <div>
+        <h3>Meat Signal</h3>
+        <p>Una plataforma que analiza precios de carne y le dice al comprador cuándo conviene comprar. La desarrollé de punta a punta para un cliente del sector.</p>
+        <dl>
+          <dt>Qué hice</dt><dd>Datos, modelo de señales y la aplicación web</dd>
+          <dt>Para quién</dt><dd>Un cliente que compra res en volumen</dd>
+          <dt>Ver</dt><dd><a href="https://meatsignal.com" target="_blank" rel="noopener">meatsignal.com</a></dd>
+        </dl>
+        <p class="note">El proyecto y la marca son del cliente; yo lo desarrollé.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="card about" id="sobre-mi">
-    <img src="img/bento/circle.svg" width="38" height="38" alt="" style="filter:invert(58%) sepia(90%) saturate(1800%) hue-rotate(345deg) brightness(102%)">
-    <p>Soy Juan, desde República Dominicana. Explico las noticias de IA y ciberseguridad que te afectan, y diseño aplicaciones, automatizaciones y agentes de IA que pruebo como si alguien quisiera romperlos.</p>
+  <section class="block">
+    <div class="head">
+      <p class="eyebrow">Cómo trabajo</p>
+      <div><h2>Tres pasos, <em>sin</em> letra pequeña.</h2></div>
+    </div>
+    <ol class="process">
+      <li><b>Me escribes</b><span>Por Instagram o correo. Me cuentas qué te quita tiempo o qué te preocupa.</span></li>
+      <li><b>Diagnóstico</b><span>En una semana te entrego el mapa de horas, riesgos y las tres mejores automatizaciones.</span></li>
+      <li><b>Tú decides</b><span>Si quieres, lo construimos juntos. Si no, te quedas con el informe y lo usas como quieras.</span></li>
+    </ol>
   </section>
 
-  <a class="card contact" id="contacto" href="mailto:contacto@sigilock.com">
-    <div class="top"><span>¿Tienes un proceso<br>que te quita tiempo?</span><img class="arrow" src="img/bento/arrow.svg" alt=""></div>
-    <div><h2>Escríbeme</h2><p class="mail">contacto@sigilock.com · respondo en 24 h</p></div>
-  </a>
+  <section class="block" id="sobre-mi">
+    <p class="eyebrow" style="margin-bottom:28px">Sobre mí</p>
+    <div class="about">
+      <div>
+        <p class="big">Soy Juan. Explico en redes cómo te estafan con tecnología, y en los negocios <em>cierro esas puertas</em> mientras automatizo lo que les quita tiempo.</p>
+        <p>Construyo aplicaciones, automatizaciones y agentes de IA desde República Dominicana. Cada semana publico reels sobre las noticias de IA y ciberseguridad que te afectan: esa es la parte pública de lo que hago para mis clientes.</p>
+      </div>
+      <a class="reel" href="https://www.instagram.com/sigilock/" target="_blank" rel="noopener">
+        <img src="img/bento/reel-ceo.jpg" alt="Fotograma del reel sobre la estafa del CEO falso hecho con IA" loading="lazy">
+        <div><span>Reels de IA y ciberseguridad · @sigilock</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 14 14 4M6 4h8v8"/></svg></div>
+      </a>
+    </div>
+  </section>
 
-  <div class="card social">
+</main>
+
+<section class="close" id="contacto">
+  <div class="shell">
+    <div>
+      <h2>¿Qué tarea te gustaría <em>no volver</em> a hacer?</h2>
+      <p>Cuéntamela. Te respondo yo, en menos de 24 horas, y te digo si la IA puede encargarse.</p>
+    </div>
+    <div class="contacts">
+      <a class="btn accent" href="https://ig.me/m/sigilock">Escribir por Instagram<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 14 14 4M6 4h8v8"/></svg></a>
+      <a class="mail" href="mailto:contacto@sigilock.com">contacto@sigilock.com</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="shell">
+    <span>© 2026 Sigilock · Juan Alexander · Desconfía primero. Verifica siempre.</span>
     <div class="soc">
       <a href="https://www.instagram.com/sigilock/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@sigilock_ai" target="_blank" rel="noopener">TikTok</a>
       <a href="mailto:contacto@sigilock.com">Email</a>
     </div>
   </div>
-</main>
-<footer><span>© 2026 Sigilock · Juan</span><span>Diseño basado en «Bentolio» de Abdul Rauf (Figma Community)</span></footer>
+</footer>
 </body>
 </html>
