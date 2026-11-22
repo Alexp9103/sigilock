@@ -8,7 +8,7 @@
 <meta property="og:title" content="Sigilock · IA y ciberseguridad para empresas">
 <meta property="og:description" content="Automatizaciones con IA y protección contra estafas para negocios. Empieza con un diagnóstico de una semana.">
 <meta property="og:image" content="img/avatar-original.webp">
-<link rel="icon" href="img/avatar-original.webp">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://sigilock.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +52,8 @@
 
   /* hero */
   .hero{display:grid;gap:clamp(32px,5vw,64px);padding:clamp(48px,8vw,104px) 0 clamp(48px,7vw,88px);grid-template-columns:minmax(0,1fr)}
-  @media (min-width:900px){.hero{grid-template-columns:minmax(0,7fr) minmax(0,4fr);align-items:end}}
+  @media (min-width:900px){.hero{grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:center}}
+  html,body{overflow-x:clip}
   h1{font-size:clamp(46px,7.6vw,100px);line-height:.94;margin-top:20px}
   .lede{color:var(--ink-2);max-width:40ch;margin-top:28px}
   .actions{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:32px}
@@ -62,10 +63,35 @@
   .btn.accent{background:var(--accent);color:oklch(18% .03 40)}
   .link{color:var(--ink-2);text-underline-offset:4px;font-size:.95em}
   .link:hover{color:var(--ink)}
-  .portrait{position:relative;max-width:360px;justify-self:start}
-  @media (min-width:900px){.portrait{justify-self:end}}
-  .portrait img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;background:var(--night)}
-  .portrait figcaption{margin-top:14px;font-size:13px;color:var(--ink-2);display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--rule);padding-top:10px}
+  /* card deck (hero) */
+  .pc{overflow:hidden}
+  .deck{position:relative;height:clamp(360px,48vw,440px);width:100%;max-width:480px;justify-self:center;margin-top:8px}
+  @media (min-width:900px){.deck{justify-self:end}}
+  .pc{--w:clamp(160px,17vw,210px);--rot:0deg;--x:0px;--y:0px;
+    position:absolute;left:50%;bottom:24px;width:var(--w);aspect-ratio:5/7;margin-left:calc(var(--w)/-2);
+    border-radius:16px;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;
+    text-decoration:none;color:var(--card-ink,#fff);transform-origin:50% 120%;
+    transform:translate(var(--x),var(--y)) rotate(var(--rot));
+    box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 18px 40px -18px oklch(20% .05 40 / .55);
+    transition:transform .7s var(--ease),box-shadow .4s var(--ease);will-change:transform}
+  .pc::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(160deg,rgba(255,255,255,.22),transparent 38%);pointer-events:none}
+  .deck.open .pc{--rot:calc(var(--i) * 9deg);--x:calc(var(--i) * 26px);--y:calc(var(--i) * var(--i) * 4px)}
+  .deck.open:hover .pc{--rot:calc(var(--i) * 11deg);--x:calc(var(--i) * 32px)}
+  .deck .pc:hover,.deck .pc:focus-visible{--y:-22px;z-index:9;box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 30px 60px -20px oklch(20% .05 40 / .6)}
+  .pc:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .pc.front{z-index:5}
+  .pc-k{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:500}
+  .pc-t{font-family:var(--display);font-size:clamp(19px,2vw,23px);line-height:1.1}
+  .pc-big{font-family:var(--display);font-size:clamp(48px,6vw,64px);line-height:.9;margin-bottom:auto;order:-1}
+  .pc img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;margin-bottom:auto;background:oklch(30% .04 255)}
+  .c-night{background:linear-gradient(165deg,oklch(34% .06 255),oklch(19% .04 260))}
+  .c-orange{background:linear-gradient(165deg,oklch(74% .16 58),oklch(57% .19 36));--card-ink:oklch(18% .04 40)}
+  .c-teal{background:linear-gradient(165deg,oklch(62% .1 185),oklch(40% .08 200))}
+  .c-wine{background:linear-gradient(165deg,oklch(52% .16 20),oklch(33% .11 15))}
+  .c-amber{background:linear-gradient(165deg,oklch(86% .13 88),oklch(70% .15 66));--card-ink:oklch(22% .04 60)}
+  @media (prefers-reduced-motion:reduce){.pc{transition:none}}
+  @media (max-width:520px){.deck{height:300px;margin-top:0}}
+  @media (max-width:520px){.deck.open .pc,.deck.open:hover .pc{--x:calc(var(--i) * 22px);--rot:calc(var(--i) * 8deg)}}
 
   /* sections */
   section.block{padding:clamp(56px,8vw,104px) 0;border-top:1px solid var(--ink)}
@@ -84,7 +110,13 @@
   .tier ul{list-style:none;margin-top:18px}
   .tier li{padding:7px 0 7px 22px;position:relative;font-size:.95em}
   .tier li::before{content:"";position:absolute;left:0;top:15px;width:10px;height:1.5px;background:var(--accent)}
-  .tier.lead{background:var(--paper-2);padding:28px 22px;border-radius:6px;border-bottom:0;margin-bottom:8px}
+  .tier:nth-child(2) .step,.tier:nth-child(2) li::before{color:oklch(45% .09 195)}
+  .tier:nth-child(2) li::before{background:oklch(52% .1 190)}
+  .tier:nth-child(3) .step{color:oklch(45% .15 20)}
+  .tier:nth-child(3) li::before{background:oklch(50% .16 20)}
+  .process li:nth-child(2)::before{color:oklch(52% .1 190)}
+  .process li:nth-child(3)::before{color:oklch(50% .16 20)}
+  .tier.lead{background:linear-gradient(165deg,oklch(92% .06 65),oklch(89% .07 55));padding:28px 22px;border-radius:6px;border-bottom:0;margin-bottom:8px}
   @media (min-width:900px){.tier.lead{margin:-12px 0 -12px;padding:44px 28px}}
   .tier.lead .tag{display:inline-block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:3px 9px;border-radius:99px;margin-bottom:12px}
 
@@ -164,10 +196,13 @@
         <a class="link" href="#servicio">Ver cómo funciona</a>
       </div>
     </div>
-    <figure class="portrait">
-      <img src="img/avatar-original.webp" alt="Ilustración de Juan Alexander con Sigi, la mascota de Sigilock" width="360" height="360">
-      <figcaption><span>Juan Alexander</span><span>República Dominicana</span></figcaption>
-    </figure>
+    <div class="deck" id="deck" aria-label="Lo que hago, en cinco tarjetas">
+      <a class="pc c-amber" href="#caso" style="--i:-2"><span class="pc-k">Caso real</span><span class="pc-big">8/10</span><span class="pc-t">Señales acertadas en Meat Signal</span></a>
+      <a class="pc c-teal" href="#servicio" style="--i:-1"><span class="pc-k">Automatización</span><span class="pc-t">Las horas que tu equipo pierde, de vuelta</span></a>
+      <a class="pc c-wine" href="/tienda/" style="--i:1"><span class="pc-k">Seguridad</span><span class="pc-t">Que no estafen a tus clientes con tu nombre</span></a>
+      <a class="pc c-orange" href="#servicio" style="--i:2"><span class="pc-k">Empieza aquí</span><span class="pc-big">7 días</span><span class="pc-t">Diagnóstico de IA para tu negocio</span></a>
+      <a class="pc c-night front" href="#sobre-mi" style="--i:0"><img src="img/avatar-original.webp" alt="Ilustración de Juan Alexander con Sigi, la mascota de Sigilock" width="220" height="220"><span class="pc-k">Juan Alexander</span><span class="pc-t">IA y ciberseguridad</span></a>
+    </div>
   </section>
 </div>
 
@@ -288,5 +323,13 @@
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var deck=document.getElementById('deck');
+  if(!deck)return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(function(){deck.classList.add('open')},reduce?0:450);
+})();
+</script>
 </body>
 </html>
