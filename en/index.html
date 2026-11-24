@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sigilock · AI and cybersecurity for businesses</title>
+<meta name="description" content="I automate the repetitive work in your business with AI and close the doors that digital scams come through. It starts with a one-week assessment.">
+<meta property="og:title" content="Sigilock · AI and cybersecurity for businesses">
+<meta property="og:description" content="AI automations and scam protection for businesses. It starts with a one-week assessment.">
+<meta property="og:image" content="/img/avatar-original.webp">
+<link rel="canonical" href="https://sigilock.com/en/">
+<link rel="alternate" hreflang="es" href="https://sigilock.com/">
+<link rel="alternate" hreflang="en" href="https://sigilock.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://sigilock.com/">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--lime:#F08A3C;--dark:#1B2233;--grey:#FFF4EA;--ink:#000;--r:45px;--ease:cubic-bezier(.22,1,.36,1)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Space Grotesk",system-ui,sans-serif;color:var(--ink);background:#fff;font-size:18px;line-height:1.4;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,5vw,60px)}
+  section{margin-top:clamp(64px,9vw,140px)}
+
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:40px 0 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:28px;text-decoration:none}
+  .logo svg{width:30px;height:30px}
+  .links{display:flex;align-items:center;gap:36px;font-size:18px}
+  .links a{text-decoration:none}
+  .links a:not(.btn-o):hover{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px;text-underline-offset:6px}
+  @media(max-width:860px){.links a:not(.btn-o){display:none}}
+
+  /* buttons */
+  .btn{display:inline-block;background:var(--dark);color:#fff;text-decoration:none;padding:20px 35px;border-radius:14px;font-size:18px;transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-o{border:1px solid var(--dark);padding:18px 32px;border-radius:14px;text-decoration:none}
+  .btn-o:hover{background:var(--lime)}
+
+  /* hero */
+  .hero{display:grid;gap:40px;align-items:center;margin-top:60px}
+  @media(min-width:900px){.hero{grid-template-columns:1.05fr 1fr}}
+  h1{font-size:clamp(40px,5.2vw,60px);font-weight:500;line-height:1.1;letter-spacing:-.01em}
+  .hero p{margin:30px 0 35px;max-width:31ch;font-size:20px}
+  .art{width:100%;max-width:560px;justify-self:center}
+
+  /* tools strip */
+  .strip{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 36px;margin-top:70px;color:#888;font-weight:600;font-size:22px;letter-spacing:-.01em}
+
+  /* section heading */
+  .sh{display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px;margin-bottom:60px}
+  .tag{background:var(--lime);font-size:40px;font-weight:500;padding:0 7px;border-radius:7px;line-height:1.25}
+  .sh p{max-width:580px}
+
+  /* cards */
+  .grid{display:grid;gap:40px}
+  @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
+  .card{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);padding:50px;display:grid;grid-template-columns:1fr auto;gap:20px;min-height:310px;background:var(--grey)}
+  .card.l{background:var(--lime)}.card.d{background:var(--dark);color:#fff}
+  .card h3{font-size:30px;font-weight:500;line-height:1.2;align-self:start}
+  .card h3 span{background:var(--lime);color:#000;padding:0 7px;border-radius:7px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .card.l h3 span{background:#fff}
+  .card ul{list-style:none;grid-column:1/-1;align-self:end;font-size:16px}
+  .card li{padding:6px 0;border-top:1px solid color-mix(in srgb,currentColor 20%,transparent)}
+  .card .ic{width:110px;height:110px}
+  @media(max-width:520px){.card{padding:28px;grid-template-columns:minmax(0,1fr) auto}.card h3{font-size:23px;overflow-wrap:break-word}.card .ic{width:60px;height:60px}}
+
+  /* cta box */
+  .cta{background:var(--grey);border-radius:var(--r);padding:60px;display:grid;gap:30px;align-items:center}
+  @media(min-width:900px){.cta{grid-template-columns:1.3fr 1fr}}
+  .cta h2{font-size:30px;font-weight:500}.cta p{margin:26px 0;max-width:50ch}
+  .cta svg{max-width:300px;justify-self:center}
+
+  /* case */
+  .case{background:var(--dark);color:#fff;border-radius:var(--r);padding:clamp(36px,5vw,70px);display:grid;gap:40px}
+  @media(min-width:900px){.case{grid-template-columns:1fr 1px 1fr 1px 1fr}}
+  .case .sep{background:#fff;opacity:.6}
+  .big{font-size:64px;font-weight:500;color:var(--lime);line-height:1}
+  .case p{margin-top:14px}
+  .case a{color:var(--lime);display:inline-flex;gap:10px;margin-top:20px;text-decoration:none}
+  .note{font-size:14px;opacity:.6;margin-top:16px}
+
+  /* process */
+  details{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);background:var(--grey);padding:36px 60px;margin-bottom:30px}
+  details[open]{background:var(--lime)}
+  summary{list-style:none;display:flex;align-items:center;gap:25px;cursor:pointer;font-size:30px;font-weight:500}
+  summary::-webkit-details-marker{display:none}
+  summary b{font-size:60px;font-weight:500}
+  summary i{margin-left:auto;width:58px;height:58px;border:1px solid var(--dark);border-radius:50%;background:var(--grey);display:grid;place-items:center;font-style:normal;font-size:34px;flex:none}
+  details[open] summary i::before{content:"−"}details:not([open]) summary i::before{content:"+"}
+  details p{border-top:1px solid var(--dark);margin-top:30px;padding-top:30px;max-width:90ch}
+  @media(max-width:600px){details{padding:24px}summary{font-size:20px;gap:14px}summary b{font-size:36px}summary i{width:40px;height:40px;font-size:24px}}
+
+  /* about */
+  .about{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);padding:40px 35px;display:grid;gap:28px}
+  @media(min-width:900px){.about{grid-template-columns:auto 1fr 1.4fr;align-items:center}}
+  .about img{width:110px;height:110px;border-radius:50%;object-fit:cover;background:var(--lime);border:3px solid var(--lime)}
+  .about h3{font-size:24px;font-weight:600}.about .role{margin-top:4px}
+  .about p+p{margin-top:12px}
+
+  /* resources */
+  .res{background:var(--dark);border-radius:var(--r);padding:clamp(36px,5vw,84px);display:grid;gap:40px;color:#fff}
+  @media(min-width:900px){.res{grid-template-columns:1fr 1fr}}
+  .bubble{border:1px solid var(--lime);border-radius:var(--r);padding:40px;display:block;text-decoration:none;transition:background .25s var(--ease)}
+  .bubble:hover{background:#252e44}
+  .bubble small{color:var(--lime);font-size:16px}
+  .bubble h3{font-size:26px;font-weight:500;margin:12px 0}
+  .bubble span{color:var(--lime)}
+
+  /* contact */
+  .contact{background:var(--grey);border-radius:var(--r);padding:clamp(36px,5vw,80px) clamp(28px,6vw,100px);display:grid;gap:40px;align-items:center}
+  @media(min-width:900px){.contact{grid-template-columns:1.2fr 1fr}}
+  .contact h2{font-size:clamp(30px,3.6vw,44px);font-weight:500;line-height:1.15}
+  .contact p{margin:20px 0 30px}
+  .contact .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+
+  footer{background:var(--dark);color:#fff;border-radius:var(--r) var(--r) 0 0;margin-top:clamp(64px,9vw,140px);padding:55px clamp(28px,5vw,60px) 50px}
+  footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+  footer .logo{color:#fff}
+  footer .flinks{display:flex;gap:30px;flex-wrap:wrap}
+  footer .bottom{border-top:1px solid #fff;margin-top:50px;padding-top:30px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:16px;opacity:.85}
+  footer .tag{font-size:20px;color:#000}
+
+  @media (prefers-reduced-motion:no-preference){
+    .art .spin{transform-origin:280px 240px;animation:spin 40s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  }
+  .links a.lang{display:inline-block!important;font-weight:600;text-decoration:none;border-bottom:3px solid var(--lime)}@media(max-width:520px){nav{gap:12px}.links{gap:12px}.links .btn-o{padding:10px 12px;font-size:14px;white-space:nowrap}nav .logo{font-size:21px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <a class="logo" href="/en/"><svg viewBox="0 0 30 30"><path d="M15 0l3.6 11.4L30 15l-11.4 3.6L15 30l-3.6-11.4L0 15l11.4-3.6z" fill="#1B2233"/></svg>Sigilock</a>
+    <div class="links">
+      <a href="#servicios">Services</a>
+      <a href="#caso">Case study</a>
+      <a href="#proceso">How I work</a>
+      <a href="#recursos">Free guides</a>
+      <a class="lang" href="/" hreflang="es" title="Leer en español">ES</a>
+      <a class="btn-o" href="https://ig.me/m/sigilock">Book an assessment</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Fewer wasted hours. Fewer gaps for scammers to get in.</h1>
+      <p>I automate the repetitive work in your business with AI and close the doors that digital scams come through. It all starts with a one-week assessment.</p>
+      <a class="btn" href="https://ig.me/m/sigilock">Book an assessment</a>
+    </div>
+    <svg class="art" viewBox="0 0 560 480" fill="none" stroke="#1B2233" stroke-width="2" aria-hidden="true">
+      <g class="spin"><ellipse cx="280" cy="240" rx="250" ry="90"/><ellipse cx="280" cy="240" rx="220" ry="140" transform="rotate(-20 280 240)"/><circle cx="58" cy="198" r="9" fill="#1B2233"/><circle cx="498" cy="290" r="12" fill="#F08A3C"/></g>
+      <rect x="190" y="200" width="180" height="150" rx="24" fill="#F08A3C"/>
+      <path d="M220 200v-40a60 60 0 0 1 120 0v40" stroke-width="16" stroke-linecap="round"/>
+      <circle cx="250" cy="265" r="13" fill="#1B2233"/><circle cx="310" cy="265" r="13" fill="#1B2233"/>
+      <path d="M255 305q25 18 50 0" stroke-width="5" stroke-linecap="round"/>
+      <path d="M470 60l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" fill="#1B2233"/>
+      <path d="M95 360l10 32 32 10-32 10-10 32-10-32-32-10 32-10z" fill="#1B2233"/>
+      <circle cx="430" cy="160" r="26" fill="#1B2233"/><path d="M420 160l7 7 13-14" stroke="#fff" stroke-width="4"/>
+      <circle cx="120" cy="110" r="24" fill="#F08A3C"/><path d="M110 110h20M120 100v20" stroke-width="3"/>
+    </svg>
+  </header>
+
+  <div class="strip" aria-label="Tools I connect"><span>WhatsApp</span><span>Gmail</span><span>Google Sheets</span><span>Instagram</span><span>Excel</span><span>Python</span></div>
+
+  <section id="servicios">
+    <div class="sh"><span class="tag">Services</span><p>No selling you software you don't need. First I understand your business, then I build.</p></div>
+    <div class="grid">
+      <article class="card">
+        <h3><span>AI assessment</span><br><span>7 days</span></h3>
+        <svg class="ic" viewBox="0 0 110 110" fill="none" stroke="#1B2233" stroke-width="2"><circle cx="48" cy="48" r="30"/><path d="M70 70l26 26" stroke-width="6" stroke-linecap="round"/><path d="M34 50l10 10 18-22" stroke-width="3"/></svg>
+        <ul><li>A 45-minute conversation about how your team works</li><li>A map of the repetitive tasks and how much time they eat</li><li>A report with the 3 automations that give you back the most hours</li></ul>
+      </article>
+      <article class="card l">
+        <h3><span>Assistants</span><br><span>that answer</span></h3>
+        <svg class="ic" viewBox="0 0 110 110" fill="none" stroke="#1B2233" stroke-width="2"><rect x="10" y="20" width="70" height="50" rx="12" fill="#fff"/><path d="M28 70l-6 16 20-16"/><rect x="40" y="48" width="60" height="40" rx="12" fill="#1B2233"/><circle cx="58" cy="68" r="3" fill="#F08A3C"/><circle cx="70" cy="68" r="3" fill="#F08A3C"/><circle cx="82" cy="68" r="3" fill="#F08A3C"/></svg>
+        <ul><li>They answer your customers on WhatsApp or Instagram using your data</li><li>They book, quote, and hand off to a person when needed</li></ul>
+      </article>
+      <article class="card d">
+        <h3><span>Reports</span><br><span>that build themselves</span></h3>
+        <svg class="ic" viewBox="0 0 110 110" fill="none" stroke="#fff" stroke-width="2"><rect x="10" y="14" width="90" height="80" rx="10"/><path d="M26 78V58M44 78V44M62 78V52M80 78V30" stroke="#F08A3C" stroke-width="8" stroke-linecap="round"/></svg>
+        <ul><li>Dashboards connected to your spreadsheets and your sales</li><li>The weekly summary arrives without anyone making it</li></ul>
+      </article>
+      <article class="card">
+        <h3><span>Connected</span><br><span>workflows</span></h3>
+        <svg class="ic" viewBox="0 0 110 110" fill="none" stroke="#1B2233" stroke-width="2"><circle cx="22" cy="30" r="14" fill="#F08A3C"/><circle cx="88" cy="30" r="14"/><circle cx="55" cy="86" r="14" fill="#1B2233"/><path d="M36 30h38M28 42l20 32M82 42L62 74"/></svg>
+        <ul><li>WhatsApp, email and spreadsheets talking to each other</li><li>Every piece tested as if someone were trying to break it</li></ul>
+      </article>
+      <article class="card l">
+        <h3><span>Protection</span><br><span>against scams</span></h3>
+        <svg class="ic" viewBox="0 0 110 110" fill="none" stroke="#1B2233" stroke-width="2"><path d="M55 8l38 14v30c0 26-17 42-38 50C34 94 17 78 17 52V22z" fill="#fff"/><path d="M38 54l12 12 22-26" stroke-width="5"/></svg>
+        <ul><li>A review of your channels: where someone could copy you or trick your customers</li><li>Alerts about new scams hitting your industry</li></ul>
+      </article>
+      <article class="card d">
+        <h3><span>Monthly</span><br><span>support</span></h3>
+        <svg class="ic" viewBox="0 0 110 110" fill="none" stroke="#fff" stroke-width="2"><rect x="12" y="20" width="86" height="76" rx="10"/><path d="M12 42h86M34 12v16M76 12v16"/><circle cx="55" cy="68" r="12" fill="#F08A3C" stroke="none"/></svg>
+        <ul><li>Adjustments when your business changes</li><li>Monitoring that everything keeps working</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta">
+      <div>
+        <h2>Which task would you like to never do again?</h2>
+        <p>Tell me on Instagram. I reply myself, within 24 hours, and tell you whether AI can take care of it.</p>
+        <a class="btn" href="https://ig.me/m/sigilock">Message me</a>
+      </div>
+      <svg viewBox="0 0 300 260" fill="none" stroke="#1B2233" stroke-width="2" aria-hidden="true"><ellipse cx="150" cy="170" rx="120" ry="30"/><ellipse cx="150" cy="170" rx="90" ry="20"/><circle cx="150" cy="120" r="50" fill="#1B2233"/><circle cx="133" cy="112" r="7" fill="#F08A3C" stroke="none"/><circle cx="167" cy="112" r="7" fill="#F08A3C" stroke="none"/><path d="M132 135q18 14 36 0" stroke="#F08A3C" stroke-width="4"/><path d="M70 190l9 28 28 9-28 9-9 28-9-28-28-9 28-9z" fill="#F08A3C"/><path d="M240 30l7 22 22 7-22 7-7 22-7-22-22-7 22-7z"/></svg>
+    </div>
+  </section>
+
+  <section id="caso">
+    <div class="sh"><span class="tag">Case study</span><p>What I build works with real data.</p></div>
+    <div class="case">
+      <div><div class="big">8/10</div><p>beef buying signals were right in the backtest on 2022–2026 historical data.</p></div>
+      <div class="sep"></div>
+      <div><p><b>Meat Signal.</b> A platform that analyzes meat prices and tells the buyer when it's a good time to buy. I built it end to end for a client in the industry.</p></div>
+      <div class="sep"></div>
+      <div><p><b>What I did:</b> the data, the signal model and the web app, for a client who buys beef in volume.</p><a href="https://meatsignal.com">See meatsignal.com ↗</a><p class="note">The project and brand belong to the client; I built it.</p></div>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="sh"><span class="tag">How I work</span><p>Three steps, no fine print.</p></div>
+    <details open><summary><b>01</b>You message me<i></i></summary><p>On Instagram or by email. Tell me what eats your time or what worries you. I reply myself, not a bot.</p></details>
+    <details><summary><b>02</b>One-week assessment<i></i></summary><p>We talk for 45 minutes about how your team works. Within seven days I deliver the map of wasted hours, the risks in your channels and the three automations that give you back the most time.</p></details>
+    <details><summary><b>03</b>You decide<i></i></summary><p>If you want, we build it together and I support you every month after. If not, you keep the report and use it however you like.</p></details>
+  </section>
+
+  <section>
+    <div class="sh"><span class="tag">About me</span><p>The person behind Sigilock.</p></div>
+    <div class="about">
+      <img src="/img/avatar-original.webp" alt="Juan Alexander">
+      <div><h3>Juan Alexander</h3><p class="role">AI and cybersecurity · Dominican Republic</p></div>
+      <div><p>I build apps, automations and AI agents for businesses.</p><p>Every week on <a href="https://www.instagram.com/sigilock/">@sigilock</a> I break down the AI news and the scams that affect you. That's the public side of what I do for my clients.</p></div>
+    </div>
+  </section>
+
+  <section id="recursos">
+    <div class="sh"><span class="tag">Free guides</span><p>What I post in reels, as concrete steps you can follow today.</p></div>
+    <div class="res">
+      <a class="bubble" href="/en/store/"><small>For store owners</small><h3>Stop scammers from using your name on your customers</h3><span>Read the guide ↗</span></a>
+      <a class="bubble" href="/en/gta6-pc/"><small>For gamers</small><h3>How to tell if a GTA 6 for PC is fake</h3><span>Read the guide ↗</span></a>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="contact">
+      <div>
+        <h2>Tell me what eats your time.</h2>
+        <p>Within 24 hours I'll tell you whether AI can take care of it. No strings attached.</p>
+        <div class="row"><a class="btn" href="https://ig.me/m/sigilock">Message on Instagram</a><a href="mailto:contacto@sigilock.com">contacto@sigilock.com</a></div>
+      </div>
+      <svg viewBox="0 0 300 300" fill="none" aria-hidden="true"><path d="M150 20l22 108 108 22-108 22-22 108-22-108-108-22 108-22z" fill="#1B2233"/><path d="M240 210l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" fill="#F08A3C"/></svg>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <div class="top">
+      <a class="logo" href="/en/"><svg viewBox="0 0 30 30"><path d="M15 0l3.6 11.4L30 15l-11.4 3.6L15 30l-3.6-11.4L0 15l11.4-3.6z" fill="#fff"/></svg>Sigilock</a>
+      <div class="flinks"><a href="#servicios">Services</a><a href="#caso">Case study</a><a href="#proceso">How I work</a><a href="#recursos">Guides</a></div>
+      <div class="flinks"><a href="https://www.instagram.com/sigilock/">Instagram</a><a href="mailto:contacto@sigilock.com">Email</a></div>
+    </div>
+    <div class="bottom"><span>© 2026 Sigilock · Juan Alexander</span><span><span class="tag">Distrust first. Always verify.</span></span></div>
+  </div>
+</footer>
+</body>
+</html>

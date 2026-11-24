@@ -9,6 +9,9 @@
 <meta property="og:description" content="Automatizaciones con IA y protección contra estafas para negocios. Empieza con un diagnóstico de una semana.">
 <meta property="og:image" content="img/avatar-original.webp">
 <link rel="canonical" href="https://sigilock.com/">
+<link rel="alternate" hreflang="es" href="https://sigilock.com/">
+<link rel="alternate" hreflang="en" href="https://sigilock.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://sigilock.com/">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +65,7 @@
   .card ul{list-style:none;grid-column:1/-1;align-self:end;font-size:16px}
   .card li{padding:6px 0;border-top:1px solid color-mix(in srgb,currentColor 20%,transparent)}
   .card .ic{width:110px;height:110px}
-  @media(max-width:520px){.card{padding:32px}.card .ic{width:70px;height:70px}}
+  @media(max-width:520px){.card{padding:28px;grid-template-columns:minmax(0,1fr) auto}.card h3{font-size:23px;overflow-wrap:break-word}.card .ic{width:60px;height:60px}}
 
   /* cta box */
   .cta{background:var(--grey);border-radius:var(--r);padding:60px;display:grid;gap:30px;align-items:center}
@@ -124,6 +127,7 @@
     .art .spin{transform-origin:280px 240px;animation:spin 40s linear infinite}
     @keyframes spin{to{transform:rotate(360deg)}}
   }
+  .links a.lang{display:inline-block!important;font-weight:600;text-decoration:none;border-bottom:3px solid var(--lime)}@media(max-width:520px){nav{gap:12px}.links{gap:12px}.links .btn-o{padding:10px 12px;font-size:14px;white-space:nowrap}nav .logo{font-size:21px}}
 </style>
 </head>
 <body>
@@ -136,6 +140,7 @@
       <a href="#caso">Caso real</a>
       <a href="#proceso">Cómo trabajo</a>
       <a href="#recursos">Guías gratis</a>
+      <a class="lang" href="/en/" hreflang="en" title="Read in English">EN</a>
       <a class="btn-o" href="https://ig.me/m/sigilock">Pedir diagnóstico</a>
     </div>
   </nav>
