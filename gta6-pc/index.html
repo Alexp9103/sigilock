@@ -12,211 +12,220 @@
 <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:oklch(96.5% .012 75);
-    --paper-2:oklch(93.5% .016 70);
-    --ink:oklch(22% .015 60);
-    --ink-2:oklch(42% .02 60);
-    --rule:oklch(86% .02 65);
-    --accent:oklch(60% .17 42);
-    --accent-ink:oklch(45% .15 40);
-    --bad:oklch(52% .17 25);
-    --good:oklch(50% .11 150);
-    --night:oklch(21% .03 255);
-    --night-ink:oklch(93% .01 255);
-    --display:"Instrument Serif",Georgia,serif;
-    --body:Geist,system-ui,sans-serif;
-    --ease:cubic-bezier(.22,1,.36,1);
-  }
+  :root{--lime:#F08A3C;--dark:#1B2233;--grey:#FFF4EA;--ink:#000;--r:45px;--ease:cubic-bezier(.22,1,.36,1)}
   *{margin:0;padding:0;box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:400;font-size:clamp(16px,1.05vw + 12px,18px);line-height:1.6;-webkit-font-smoothing:antialiased}
+  body{font-family:"Space Grotesk",system-ui,sans-serif;color:var(--ink);background:#fff;font-size:18px;line-height:1.4;-webkit-font-smoothing:antialiased}
   a{color:inherit}
-  .shell{max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,5vw,60px)}
+  section{margin-top:clamp(64px,9vw,140px)}
 
-  /* masthead */
-  .mast{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid var(--ink)}
-  .word{font-weight:600;letter-spacing:.14em;font-size:13px;text-decoration:none}
-  .issue{font-size:13px;color:var(--ink-2);text-align:right}
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:40px 0 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:28px;text-decoration:none}
+  .logo svg{width:30px;height:30px}
+  .links{display:flex;align-items:center;gap:36px;font-size:18px}
+  .links a{text-decoration:none}
+  .links a:not(.btn-o):hover{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px;text-underline-offset:6px}
+  @media(max-width:860px){.links a:not(.btn-o){display:none}}
+
+  /* buttons */
+  .btn{display:inline-block;background:var(--dark);color:#fff;text-decoration:none;padding:20px 35px;border-radius:14px;font-size:18px;transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-o{border:1px solid var(--dark);padding:18px 32px;border-radius:14px;text-decoration:none}
+  .btn-o:hover{background:var(--lime)}
 
   /* hero */
-  .hero{padding:clamp(48px,9vw,112px) 0 clamp(40px,6vw,72px);display:grid;gap:clamp(28px,4vw,56px);grid-template-columns:minmax(0,1fr)}
-  @media (min-width:900px){.hero{grid-template-columns:minmax(0,7fr) minmax(0,4fr);align-items:end}}
-  .kicker{font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:20px}
-  h1{font-family:var(--display);font-weight:400;font-size:clamp(44px,7.4vw,92px);line-height:.95;letter-spacing:-.015em}
-  h1 em{color:var(--accent);font-style:italic}
-  .dek{color:var(--ink-2);max-width:34ch}
-  .dek strong{color:var(--ink);font-weight:500}
-  .facts{display:grid;grid-template-columns:repeat(3,auto);gap:4px 28px;margin-top:24px;padding-top:16px;border-top:1px solid var(--rule);justify-content:start}
-  .facts dt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
-  .facts dd{font-family:var(--display);font-size:28px;line-height:1.1;grid-row:2}
+  .hero{display:grid;gap:40px;align-items:center;margin-top:60px}
+  @media(min-width:900px){.hero{grid-template-columns:1.05fr 1fr}}
+  h1{font-size:clamp(40px,5.2vw,60px);font-weight:500;line-height:1.1;letter-spacing:-.01em}
+  .hero p{margin:30px 0 35px;max-width:31ch;font-size:20px}
+  .art{width:100%;max-width:560px;justify-self:center}
 
-  /* steps */
-  .step{display:grid;grid-template-columns:minmax(0,1fr);gap:8px 48px;padding:clamp(40px,6vw,72px) 0;border-top:1px solid var(--ink)}
-  @media (min-width:900px){.step{grid-template-columns:200px minmax(0,1fr)}}
-  .n{font-family:var(--display);font-size:clamp(64px,9vw,120px);line-height:.8;color:var(--accent)}
-  .n small{display:block;font-family:var(--body);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-top:14px}
-  h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,44px);line-height:1.05;letter-spacing:-.01em;max-width:20ch}
-  .body{max-width:64ch}
-  .body>p{color:var(--ink-2);margin-top:14px}
-  .label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin:36px 0 10px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  /* tools strip */
+  .strip{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 36px;margin-top:70px;color:#888;font-weight:600;font-size:22px;letter-spacing:-.01em}
 
-  /* template */
-  .tpl{background:#fffdf9;border:1px solid var(--rule);border-radius:6px;padding:20px 22px;white-space:pre-wrap;line-height:1.6;font-size:.96em}
-  .tpl var{font-style:normal;color:var(--accent-ink);background:color-mix(in oklch,var(--accent) 12%,transparent);padding:1px 4px;border-radius:3px}
-  .copy{font:500 13px var(--body);color:var(--ink);background:none;border:1px solid var(--ink);border-radius:99px;padding:6px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s var(--ease),color .2s var(--ease)}
-  .copy:hover{background:var(--ink);color:var(--paper)}
-  .copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .copy svg{width:14px;height:14px}
+  /* section heading */
+  .sh{display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px;margin-bottom:60px}
+  .tag{background:var(--lime);font-size:40px;font-weight:500;padding:0 7px;border-radius:7px;line-height:1.25}
+  .sh p{max-width:580px}
 
-  /* story frames */
-  .frames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-  .frame{aspect-ratio:9/16;background:var(--night);color:var(--night-ink);border-radius:10px;padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;font-size:clamp(11px,1.6vw,14px);line-height:1.35}
-  .frame b{font-family:var(--display);font-weight:400;font-size:1.45em;line-height:1.05;display:block}
-  .frame span{opacity:.6;font-size:.85em}
+  /* cards */
+  .grid{display:grid;gap:40px}
+  @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
+  .card{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);padding:50px;display:grid;grid-template-columns:1fr auto;gap:20px;min-height:310px;background:var(--grey)}
+  .card.l{background:var(--lime)}.card.d{background:var(--dark);color:#fff}
+  .card h3{font-size:30px;font-weight:500;line-height:1.2;align-self:start}
+  .card h3 span{background:var(--lime);color:#000;padding:0 7px;border-radius:7px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .card.l h3 span{background:#fff}
+  .card ul{list-style:none;grid-column:1/-1;align-self:end;font-size:16px}
+  .card li{padding:6px 0;border-top:1px solid color-mix(in srgb,currentColor 20%,transparent)}
+  .card .ic{width:110px;height:110px}
+  @media(max-width:520px){.card{padding:32px}.card .ic{width:70px;height:70px}}
 
-  /* lists */
-  .checks{list-style:none;margin-top:24px;border-top:1px solid var(--rule)}
-  .checks li{display:grid;grid-template-columns:22px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule)}
-  .checks li::before{content:"";width:16px;height:16px;margin-top:4px;border:1.5px solid var(--ink);border-radius:3px}
-  .steps-list{list-style:none;counter-reset:s;margin-top:24px}
-  .steps-list li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
-  .steps-list li::before{content:counter(s,decimal-leading-zero);font-size:13px;color:var(--accent-ink);font-weight:500;padding-top:3px}
-  .steps-list b,.checks b{font-weight:500}
-  .alert{margin-top:24px;padding:18px 0 0;border-top:2px solid var(--bad);color:var(--ink)}
-  .alert b{color:var(--bad);font-weight:500}
+  /* cta box */
+  .cta{background:var(--grey);border-radius:var(--r);padding:60px;display:grid;gap:30px;align-items:center}
+  @media(min-width:900px){.cta{grid-template-columns:1.3fr 1fr}}
+  .cta h2{font-size:30px;font-weight:500}.cta p{margin:26px 0;max-width:50ch}
+  .cta svg{max-width:300px;justify-self:center}
 
-  /* comparison */
-  .cmp{width:100%;border-collapse:collapse;margin-top:24px;font-size:.95em}
-  .cmp th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);font-weight:500;text-align:left;padding:0 12px 10px 0;border-bottom:1px solid var(--ink)}
-  .cmp td{padding:14px 12px 14px 0;border-bottom:1px solid var(--rule);vertical-align:top}
-  .cmp td:first-child{font-weight:500;width:22%}
-  .cmp .ok{color:var(--good)}
-  .cmp .no{color:var(--bad)}
-  .cmp code{font-family:var(--body);font-size:.95em;background:var(--paper-2);padding:1px 5px;border-radius:3px}
-  @media (max-width:560px){
-    .cmp thead{display:none}
-    .cmp tr{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;padding:14px 0;border-bottom:1px solid var(--rule)}
-    .cmp td{border:0;padding:0}
-    .cmp td:first-child{grid-column:1/-1;width:auto}
-    .cmp td.ok::before{content:"Real";display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-    .cmp td.no::before{content:"Copia";display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-  }
+  /* case */
+  .case{background:var(--dark);color:#fff;border-radius:var(--r);padding:clamp(36px,5vw,70px);display:grid;gap:40px}
+  @media(min-width:900px){.case{grid-template-columns:1fr 1px 1fr 1px 1fr}}
+  .case .sep{background:#fff;opacity:.6}
+  .big{font-size:64px;font-weight:500;color:var(--lime);line-height:1}
+  .case p{margin-top:14px}
+  .case a{color:var(--lime);display:inline-flex;gap:10px;margin-top:20px;text-decoration:none}
+  .note{font-size:14px;opacity:.6;margin-top:16px}
 
-  /* closing */
-  .close{background:var(--night);color:var(--night-ink);margin-top:clamp(40px,6vw,72px)}
-  .close .shell{display:grid;gap:28px;padding-top:clamp(48px,7vw,88px);padding-bottom:clamp(48px,7vw,88px)}
-  @media (min-width:900px){.close .shell{grid-template-columns:minmax(0,7fr) minmax(0,4fr);align-items:end}}
-  .close h2{color:var(--night-ink);max-width:16ch}
-  .close h2 em{color:var(--accent);font-style:italic}
-  .close p{opacity:.72;margin-top:16px;max-width:46ch}
-  .btn{display:inline-flex;align-items:center;justify-content:space-between;gap:16px;background:var(--accent);color:oklch(18% .03 40);text-decoration:none;font-weight:500;padding:16px 22px;border-radius:99px;transition:transform .25s var(--ease)}
-  .btn:hover{transform:translateY(-2px)}
-  .btn svg{width:18px;height:18px}
-  .btn-note{font-size:13px;opacity:.6;margin-top:12px}
-  footer{background:var(--night);color:var(--night-ink)}
-  footer .shell{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:20px;padding-bottom:28px;border-top:1px solid oklch(32% .03 255);font-size:13px;opacity:.7}
+  /* process */
+  details{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);background:var(--grey);padding:36px 60px;margin-bottom:30px}
+  details[open]{background:var(--lime)}
+  summary{list-style:none;display:flex;align-items:center;gap:25px;cursor:pointer;font-size:30px;font-weight:500}
+  summary::-webkit-details-marker{display:none}
+  summary b{font-size:60px;font-weight:500}
+  summary i{margin-left:auto;width:58px;height:58px;border:1px solid var(--dark);border-radius:50%;background:var(--grey);display:grid;place-items:center;font-style:normal;font-size:34px;flex:none}
+  details[open] summary i::before{content:"−"}details:not([open]) summary i::before{content:"+"}
+  details p{border-top:1px solid var(--dark);margin-top:30px;padding-top:30px;max-width:90ch}
+  @media(max-width:600px){details{padding:24px}summary{font-size:20px;gap:14px}summary b{font-size:36px}summary i{width:40px;height:40px;font-size:24px}}
 
-  /* load */
+  /* about */
+  .about{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);padding:40px 35px;display:grid;gap:28px}
+  @media(min-width:900px){.about{grid-template-columns:auto 1fr 1.4fr;align-items:center}}
+  .about img{width:110px;height:110px;border-radius:50%;object-fit:cover;background:var(--lime);border:3px solid var(--lime)}
+  .about h3{font-size:24px;font-weight:600}.about .role{margin-top:4px}
+  .about p+p{margin-top:12px}
+
+  /* resources */
+  .res{background:var(--dark);border-radius:var(--r);padding:clamp(36px,5vw,84px);display:grid;gap:40px;color:#fff}
+  @media(min-width:900px){.res{grid-template-columns:1fr 1fr}}
+  .bubble{border:1px solid var(--lime);border-radius:var(--r);padding:40px;display:block;text-decoration:none;transition:background .25s var(--ease)}
+  .bubble:hover{background:#252e44}
+  .bubble small{color:var(--lime);font-size:16px}
+  .bubble h3{font-size:26px;font-weight:500;margin:12px 0}
+  .bubble span{color:var(--lime)}
+
+  /* contact */
+  .contact{background:var(--grey);border-radius:var(--r);padding:clamp(36px,5vw,80px) clamp(28px,6vw,100px);display:grid;gap:40px;align-items:center}
+  @media(min-width:900px){.contact{grid-template-columns:1.2fr 1fr}}
+  .contact h2{font-size:clamp(30px,3.6vw,44px);font-weight:500;line-height:1.15}
+  .contact p{margin:20px 0 30px}
+  .contact .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+
+  footer{background:var(--dark);color:#fff;border-radius:var(--r) var(--r) 0 0;margin-top:clamp(64px,9vw,140px);padding:55px clamp(28px,5vw,60px) 50px}
+  footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+  footer .logo{color:#fff}
+  footer .flinks{display:flex;gap:30px;flex-wrap:wrap}
+  footer .bottom{border-top:1px solid #fff;margin-top:50px;padding-top:30px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:16px;opacity:.85}
+  footer .tag{font-size:20px;color:#000}
+
   @media (prefers-reduced-motion:no-preference){
-    .hero>*{animation:rise .9s var(--ease) both}
-    .hero>*:nth-child(2){animation-delay:.12s}
-    @keyframes rise{from{opacity:0;transform:translateY(14px)}}
+    .art .spin{transform-origin:280px 240px;animation:spin 40s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
   }
+
+  .gtbl{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #1B2233;border-radius:45px;box-shadow:0 5px 0 #1B2233;overflow:hidden;background:#fff}
+  .gtbl th{background:#1B2233;color:#fff;text-align:left;font-weight:500;padding:22px 28px;font-size:16px}
+  .gtbl td{padding:20px 28px;border-top:1px solid #1B2233;vertical-align:top;font-size:17px}
+  .gtbl td:first-child{font-weight:600}
+  .gtbl code{font-family:inherit;background:#FFF4EA;padding:2px 8px;border-radius:7px}
+  @media(max-width:640px){.gtbl thead{display:none}.gtbl tr{display:block;border-top:1px solid #1B2233;padding:18px 22px}.gtbl tr:first-child{border-top:0}.gtbl td{display:block;border:0;padding:3px 0}}
+  .src{font-size:15px;margin-top:22px;max-width:80ch}
+  .signs{display:grid;gap:30px}@media(min-width:800px){.signs{grid-template-columns:1fr 1fr 1fr}}
+  .sign{border:1px solid #1B2233;border-radius:45px;box-shadow:0 5px 0 #1B2233;padding:36px;background:#FFF4EA}
+  .sign:nth-child(3n+2){background:#F08A3C}.sign:nth-child(3n){background:#1B2233;color:#fff}
+  .sign b{display:block;font-size:22px;font-weight:500;margin-bottom:10px}
+  .warn{margin-top:30px;border:1px solid #1B2233;border-radius:45px;box-shadow:0 5px 0 #1B2233;padding:36px 44px;background:#F08A3C}
+  .facts{display:flex;gap:40px;margin-top:30px;flex-wrap:wrap}.facts div{border-left:3px solid #F08A3C;padding-left:14px}.facts b{display:block;font-size:34px;font-weight:500}
 </style>
 </head>
 <body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="/"><svg viewBox="0 0 30 30"><path d="M15 0l3.6 11.4L30 15l-11.4 3.6L15 30l-3.6-11.4L0 15l11.4-3.6z" fill="#1B2233"/></svg>Sigilock</a>
+    <div class="links">
+      <a href="#reales">Los reales</a><a href="#senales">Señales</a><a href="#ya-baje">Si ya bajaste algo</a>
+      <a class="btn-o" href="https://www.instagram.com/sigilock/">Seguir el reporte</a>
+    </div>
+  </nav>
 
-<div class="shell">
-  <header class="mast">
-    <a class="word" href="/">SIGILOCK</a>
-    <span class="issue">Boletín de seguridad · GTA 6 en PC · Actualizado 24 nov 2026</span>
+  <header class="hero">
+    <div>
+      <span class="tag" style="font-size:18px">Guía para jugadores · Actualizada 24 nov 2026</span>
+      <h1 style="margin-top:24px">Cómo saber si un GTA 6 para PC es falso.</h1>
+      <p>El 23 de noviembre se filtró el ejecutable de Xbox y ya hay unos treinta proyectos intentando correrlo en PC. Ninguno es jugable todavía. <b>Cualquier cosa que te ofrezcan para bajar y jugar hoy es falsa.</b></p>
+      <div class="facts"><div><small>Jugable hoy</small><b>No</b></div><div><small>Más avanzado</small><b>4 fps</b></div><div><small>Para revisar</small><b>10 s</b></div></div>
+    </div>
+    <svg class="art" viewBox="0 0 560 480" fill="none" stroke="#1B2233" stroke-width="2" aria-hidden="true">
+      <g class="spin"><ellipse cx="280" cy="240" rx="250" ry="90"/><ellipse cx="280" cy="240" rx="220" ry="140" transform="rotate(-20 280 240)"/><circle cx="58" cy="198" r="9" fill="#1B2233"/><circle cx="498" cy="290" r="12" fill="#F08A3C"/></g>
+      <rect x="150" y="150" width="260" height="190" rx="22" fill="#F08A3C"/>
+      <rect x="175" y="175" width="210" height="120" rx="10" fill="#1B2233"/>
+      <path d="M255 205l50 50M305 205l-50 50" stroke="#F08A3C" stroke-width="12" stroke-linecap="round"/>
+      <rect x="250" y="340" width="60" height="30" fill="#1B2233"/><rect x="210" y="370" width="140" height="14" rx="7" fill="#1B2233"/>
+      <path d="M470 60l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" fill="#1B2233"/>
+      <path d="M95 360l10 32 32 10-32 10-10 32-10-32-32-10 32-10z" fill="#1B2233"/>
+      <text x="400" y="150" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="600" fill="#1B2233" stroke="none">.exe?</text>
+    </svg>
   </header>
 
-  <section class="hero">
-    <div>
-      <p class="kicker">Para jugadores</p>
-      <h1>Cómo saber si un GTA 6 para PC <em>es falso.</em></h1>
+  <section id="reales">
+    <div class="sh"><span class="tag">Los reales</span><p>Ninguno tiene un instalador ni un juego para bajar. En sus páginas solo hay código para programadores, y piden que pongas tu propia copia del juego. Si alguien te manda un “GTA 6 PC listo” en nombre de cualquiera de estos proyectos, es mentira.</p></div>
+    <table class="gtbl">
+      <thead><tr><th>Proyecto</th><th>Dónde va</th><th>Página oficial</th></tr></thead>
+      <tbody>
+        <tr><td>CGBJ</td><td>Dentro del juego, a unos 4 fps y sin luces</td><td>Privado. No tiene nada público.</td></tr>
+        <tr><td>VIctory</td><td>Menú a 30 fps, según el propio proyecto</td><td><a href="https://github.com/Marvisak/VIctory"><code>github.com/Marvisak/VIctory</code></a></td></tr>
+        <tr><td>XCL</td><td>Llega al mundo, se queda cargando</td><td><a href="https://github.com/ivall/xcl"><code>github.com/ivall/xcl</code></a></td></tr>
+        <tr><td>Xbox2Windows</td><td>Primera imagen, inestable</td><td><a href="https://github.com/R0Y00/Xbox2Windows"><code>github.com/R0Y00/Xbox2Windows</code></a></td></tr>
+        <tr><td>TuxBox</td><td>Primera pantalla, sobre todo en Linux</td><td><a href="https://github.com/brcly/TuxBox"><code>github.com/brcly/TuxBox</code></a></td></tr>
+      </tbody>
+    </table>
+    <p class="src">Fuente: el tablero de <a href="https://portwatch-vi.xyz/">PortWatch VI</a>, que sigue todos los proyectos. Rockstar no ha anunciado versión de PC y no tiene relación con ninguno de ellos.</p>
+  </section>
+
+  <section id="senales">
+    <div class="sh"><span class="tag">Señales de un falso</span><p>Con una sola de estas, ciérralo.</p></div>
+    <div class="signs">
+      <div class="sign"><b>Hay un .exe o un “instalador” para bajar.</b>Los proyectos reales no tienen eso.</div>
+      <div class="sign"><b>Te piden dinero, cripto o “donación”.</b>Ya hay gente usando el nombre de los proyectos para vender monedas.</div>
+      <div class="sign"><b>Te mandan a Telegram o a un link acortado.</b>El original está en GitHub.</div>
+      <div class="sign"><b>El nombre es casi igual al real.</b>Una letra cambiada, o “oficial”, “full” o “crack” añadido.</div>
+      <div class="sign"><b>Miles de estrellas, cero cambios.</b>Cuenta nueva sin cambios reales en el código: las estrellas se compran.</div>
+      <div class="sign"><b>Te pide apagar el antivirus.</b>O “ejecutar como administrador” para funcionar.</div>
     </div>
-    <div>
-      <p class="dek">El 23 de noviembre se filtró el ejecutable de Xbox y ya hay unos treinta proyectos intentando correrlo en PC. Ninguno es jugable todavía. <strong>Cualquier cosa que te ofrezcan para bajar y jugar hoy es falsa.</strong></p>
-      <dl class="facts">
-        <dt>Jugable hoy</dt><dd>No</dd>
-        <dt>Más avanzado</dt><dd>4 fps</dd>
-        <dt>Revisar</dt><dd>10 s</dd>
-      </dl>
+  </section>
+
+  <section id="ya-baje">
+    <div class="sh"><span class="tag">Si ya bajaste algo</span><p>Qué hacer ahora mismo, en este orden.</p></div>
+    <details open><summary><b>01</b>No lo abras otra vez<i></i></summary><p>Si ya lo abriste, desconecta la PC de internet.</p></details>
+    <details><summary><b>02</b>Revísalo en VirusTotal<i></i></summary><p>Súbelo a <a href="https://www.virustotal.com/">virustotal.com</a>. Si una sola alarma salta, bórralo y vacía la papelera.</p></details>
+    <details><summary><b>03</b>Escanea con Windows<i></i></summary><p>Seguridad de Windows, Protección antivirus, Opciones de examen, “Examen de Microsoft Defender sin conexión”.</p></details>
+    <details><summary><b>04</b>Cambia tus contraseñas<i></i></summary><p>Desde otro dispositivo, no desde esa PC: correo, Steam, Rockstar, Discord y banco.</p></details>
+    <details><summary><b>05</b>Cierra sesiones abiertas<i></i></summary><p>En cada cuenta (en Google: Seguridad, Tus dispositivos) y activa la verificación en dos pasos.</p></details>
+    <div class="warn"><b>Si quieres probar algo sí o sí:</b> ábrelo dentro del Sandbox de Windows (Windows 10/11 Pro, se activa en “Características de Windows”). Todo lo que pase ahí se borra al cerrarlo.</div>
+  </section>
+
+  <section>
+    <div class="contact">
+      <div>
+        <h2>Te aviso el día que sea jugable.</h2>
+        <p>Sigo la carrera todos los días y subo el reporte en mis historias y reels. Esta página se actualiza con cada cambio.</p>
+        <div class="row"><a class="btn" href="https://www.instagram.com/sigilock/">Seguir a @sigilock</a><span>Nunca te voy a mandar un link para bajar GTA 6.</span></div>
+      </div>
+      <svg viewBox="0 0 300 300" fill="none" aria-hidden="true"><path d="M150 20l22 108 108 22-108 22-22 108-22-108-108-22 108-22z" fill="#1B2233"/><path d="M240 210l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" fill="#F08A3C"/></svg>
     </div>
   </section>
 </div>
 
-<main class="shell">
-
-  <section class="step">
-    <div class="n">01<small>Los reales</small></div>
-    <div class="body">
-      <h2>Estos son los proyectos de verdad.</h2>
-      <p>Ninguno tiene un instalador ni un juego para bajar. En sus páginas solo hay código para programadores, y piden que pongas tu propia copia del juego. Si alguien te manda un “GTA 6 PC listo” en nombre de cualquiera de estos proyectos, es mentira.</p>
-      <table class="cmp">
-        <thead><tr><th>Proyecto</th><th>Dónde va</th><th>Página oficial</th></tr></thead>
-        <tbody>
-          <tr><td>CGBJ</td><td>Dentro del juego, a unos 4 fps y sin luces</td><td>Privado. No tiene nada público.</td></tr>
-          <tr><td>VIctory</td><td>Menú a 30 fps, según el propio proyecto</td><td><a href="https://github.com/Marvisak/VIctory"><code>github.com/Marvisak/VIctory</code></a></td></tr>
-          <tr><td>XCL</td><td>Llega al mundo, se queda cargando</td><td><a href="https://github.com/ivall/xcl"><code>github.com/ivall/xcl</code></a></td></tr>
-          <tr><td>Xbox2Windows</td><td>Primera imagen, inestable</td><td><a href="https://github.com/R0Y00/Xbox2Windows"><code>github.com/R0Y00/Xbox2Windows</code></a></td></tr>
-          <tr><td>TuxBox</td><td>Primera pantalla, sobre todo en Linux</td><td><a href="https://github.com/brcly/TuxBox"><code>github.com/brcly/TuxBox</code></a></td></tr>
-        </tbody>
-      </table>
-      <p style="color:var(--ink-2);margin-top:12px;font-size:.92em">Fuente: el tablero de <a href="https://portwatch-vi.xyz/">PortWatch VI</a>, que sigue todos los proyectos. Rockstar no ha anunciado versión de PC y no tiene relación con ninguno de ellos.</p>
+<footer>
+  <div class="wrap" style="padding:0">
+    <div class="top">
+      <a class="logo" href="/"><svg viewBox="0 0 30 30"><path d="M15 0l3.6 11.4L30 15l-11.4 3.6L15 30l-3.6-11.4L0 15l11.4-3.6z" fill="#fff"/></svg>Sigilock</a>
+      <div class="flinks"><a href="/">Inicio</a><a href="/tienda/">Guía para tiendas</a><a href="https://www.instagram.com/sigilock/">Instagram</a></div>
     </div>
-  </section>
-
-  <section class="step">
-    <div class="n">02<small>Diez segundos</small></div>
-    <div class="body">
-      <h2>Las señales de una copia falsa.</h2>
-      <p>Con una sola de estas, ciérralo.</p>
-      <ul class="checks">
-        <li><span><b>Hay un .exe, un “instalador” o un .zip para bajar y jugar.</b> Los proyectos reales no tienen eso.</span></li>
-        <li><span><b>Te piden dinero, cripto o “donación” para darte acceso.</b> Ya hay gente usando el nombre de los proyectos para vender monedas.</span></li>
-        <li><span><b>Te mandan a Telegram, a un Discord desconocido o a un link acortado.</b> El original está en GitHub.</span></li>
-        <li><span><b>El nombre es casi igual al real:</b> una letra cambiada, o “oficial”, “full” o “crack” añadido.</span></li>
-        <li><span><b>Cuenta nueva con miles de estrellas, pero sin cambios reales en el código.</b> Las estrellas se compran.</span></li>
-        <li><span><b>Te pide desactivar el antivirus</b> o “ejecutar como administrador” para funcionar.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="step">
-    <div class="n">03<small>Si ya bajaste algo</small></div>
-    <div class="body">
-      <h2>Qué hacer ahora mismo.</h2>
-      <ol class="steps-list">
-        <li><span><b>No lo abras otra vez.</b> Si ya lo abriste, desconecta la PC de internet.</span></li>
-        <li><span><b>Súbelo a <a href="https://www.virustotal.com/">virustotal.com</a>.</b> Si una sola alarma salta, bórralo y vacía la papelera.</span></li>
-        <li><span><b>Escanea con Windows:</b> Seguridad de Windows, Protección antivirus, Opciones de examen, “Examen de Microsoft Defender sin conexión”.</span></li>
-        <li><span><b>Cambia contraseñas desde otro dispositivo</b>, no desde esa PC: correo, Steam, Rockstar, Discord y banco.</span></li>
-        <li><span><b>Cierra las sesiones abiertas</b> en cada una (en Google: Seguridad, Tus dispositivos) y activa la verificación en dos pasos.</span></li>
-      </ol>
-      <p class="alert"><b>Si quieres probar algo sí o sí:</b> ábrelo dentro del Sandbox de Windows (Windows 10/11 Pro, se activa en “Características de Windows”). Todo lo que pase ahí se borra al cerrarlo.</p>
-    </div>
-  </section>
-
-</main>
-
-<section class="close">
-  <div class="shell">
-    <div>
-      <h2>Te aviso <em>el día</em> que sea jugable.</h2>
-      <p>Sigo la carrera todos los días y subo el reporte en mis historias y reels. Esta página se actualiza con cada cambio.</p>
-    </div>
-    <div>
-      <a class="btn" href="https://www.instagram.com/sigilock/">Seguir a @sigilock<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 14 14 4M6 4h8v8"/></svg></a>
-      <p class="btn-note">Nunca te voy a mandar un link para bajar GTA 6.</p>
-    </div>
+    <div class="bottom"><span>© 2026 Sigilock · Juan Alexander</span><span><span class="tag">Desconfía primero. Verifica siempre.</span></span></div>
   </div>
-</section>
-<footer><div class="shell"><span>Juan Alexander · Sigilock · IA y ciberseguridad</span><span>Desconfía primero. Verifica siempre.</span></div></footer>
+</footer>
 </body>
 </html>
