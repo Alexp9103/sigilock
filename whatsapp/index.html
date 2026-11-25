@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tu WhatsApp Business contesta solo en 3 pasos · Sigilock</title>
+<meta name="description" content="Mensaje de bienvenida, mensaje de ausencia y respuestas rápidas en WhatsApp Business: dónde está cada uno y textos listos para copiar.">
+<meta property="og:title" content="Tu WhatsApp Business contesta solo en 3 pasos">
+<meta property="og:description" content="Dónde está cada opción y textos listos para copiar.">
+<meta property="og:image" content="../img/avatar-original.webp">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--lime:#F08A3C;--dark:#1B2233;--grey:#FFF4EA;--ink:#000;--r:45px;--ease:cubic-bezier(.22,1,.36,1)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Space Grotesk",system-ui,sans-serif;color:var(--ink);background:#fff;font-size:18px;line-height:1.4;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,5vw,60px)}
+  section{margin-top:clamp(64px,9vw,140px)}
+
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:40px 0 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:28px;text-decoration:none}
+  .logo svg{width:30px;height:30px}
+  .links{display:flex;align-items:center;gap:36px;font-size:18px}
+  .links a{text-decoration:none}
+  .links a:not(.btn-o):hover{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px;text-underline-offset:6px}
+  @media(max-width:860px){.links a:not(.btn-o){display:none}}
+
+  /* buttons */
+  .btn{display:inline-block;background:var(--dark);color:#fff;text-decoration:none;padding:20px 35px;border-radius:14px;font-size:18px;transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-o{border:1px solid var(--dark);padding:18px 32px;border-radius:14px;text-decoration:none}
+  .btn-o:hover{background:var(--lime)}
+
+  /* hero */
+  .hero{display:grid;gap:40px;align-items:center;margin-top:60px}
+  @media(min-width:900px){.hero{grid-template-columns:1.05fr 1fr}}
+  h1{font-size:clamp(40px,5.2vw,60px);font-weight:500;line-height:1.1;letter-spacing:-.01em}
+  .hero p{margin:30px 0 35px;max-width:31ch;font-size:20px}
+  .art{width:100%;max-width:560px;justify-self:center}
+
+  /* tools strip */
+  .strip{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 36px;margin-top:70px;color:#888;font-weight:600;font-size:22px;letter-spacing:-.01em}
+
+  /* section heading */
+  .sh{display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px;margin-bottom:60px}
+  .tag{background:var(--lime);font-size:40px;font-weight:500;padding:0 7px;border-radius:7px;line-height:1.25}
+  .sh p{max-width:580px}
+
+  /* cards */
+  .grid{display:grid;gap:40px}
+  @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
+  .card{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);padding:50px;display:grid;grid-template-columns:1fr auto;gap:20px;min-height:310px;background:var(--grey)}
+  .card.l{background:var(--lime)}.card.d{background:var(--dark);color:#fff}
+  .card h3{font-size:30px;font-weight:500;line-height:1.2;align-self:start}
+  .card h3 span{background:var(--lime);color:#000;padding:0 7px;border-radius:7px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .card.l h3 span{background:#fff}
+  .card ul{list-style:none;grid-column:1/-1;align-self:end;font-size:16px}
+  .card li{padding:6px 0;border-top:1px solid color-mix(in srgb,currentColor 20%,transparent)}
+  .card .ic{width:110px;height:110px}
+  @media(max-width:520px){.card{padding:32px}.card .ic{width:70px;height:70px}}
+
+  /* cta box */
+  .cta{background:var(--grey);border-radius:var(--r);padding:60px;display:grid;gap:30px;align-items:center}
+  @media(min-width:900px){.cta{grid-template-columns:1.3fr 1fr}}
+  .cta h2{font-size:30px;font-weight:500}.cta p{margin:26px 0;max-width:50ch}
+  .cta svg{max-width:300px;justify-self:center}
+
+  /* case */
+  .case{background:var(--dark);color:#fff;border-radius:var(--r);padding:clamp(36px,5vw,70px);display:grid;gap:40px}
+  @media(min-width:900px){.case{grid-template-columns:1fr 1px 1fr 1px 1fr}}
+  .case .sep{background:#fff;opacity:.6}
+  .big{font-size:64px;font-weight:500;color:var(--lime);line-height:1}
+  .case p{margin-top:14px}
+  .case a{color:var(--lime);display:inline-flex;gap:10px;margin-top:20px;text-decoration:none}
+  .note{font-size:14px;opacity:.6;margin-top:16px}
+
+  /* process */
+  details{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);background:var(--grey);padding:36px 60px;margin-bottom:30px}
+  details[open]{background:var(--lime)}
+  summary{list-style:none;display:flex;align-items:center;gap:25px;cursor:pointer;font-size:30px;font-weight:500}
+  summary::-webkit-details-marker{display:none}
+  summary b{font-size:60px;font-weight:500}
+  summary i{margin-left:auto;width:58px;height:58px;border:1px solid var(--dark);border-radius:50%;background:var(--grey);display:grid;place-items:center;font-style:normal;font-size:34px;flex:none}
+  details[open] summary i::before{content:"−"}details:not([open]) summary i::before{content:"+"}
+  details p{border-top:1px solid var(--dark);margin-top:30px;padding-top:30px;max-width:90ch}
+  @media(max-width:600px){details{padding:24px}summary{font-size:20px;gap:14px}summary b{font-size:36px}summary i{width:40px;height:40px;font-size:24px}}
+
+  /* about */
+  .about{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);padding:40px 35px;display:grid;gap:28px}
+  @media(min-width:900px){.about{grid-template-columns:auto 1fr 1.4fr;align-items:center}}
+  .about img{width:110px;height:110px;border-radius:50%;object-fit:cover;background:var(--lime);border:3px solid var(--lime)}
+  .about h3{font-size:24px;font-weight:600}.about .role{margin-top:4px}
+  .about p+p{margin-top:12px}
+
+  /* resources */
+  .res{background:var(--dark);border-radius:var(--r);padding:clamp(36px,5vw,84px);display:grid;gap:40px;color:#fff}
+  @media(min-width:900px){.res{grid-template-columns:1fr 1fr}}
+  .bubble{border:1px solid var(--lime);border-radius:var(--r);padding:40px;display:block;text-decoration:none;transition:background .25s var(--ease)}
+  .bubble:hover{background:#252e44}
+  .bubble small{color:var(--lime);font-size:16px}
+  .bubble h3{font-size:26px;font-weight:500;margin:12px 0}
+  .bubble span{color:var(--lime)}
+
+  /* contact */
+  .contact{background:var(--grey);border-radius:var(--r);padding:clamp(36px,5vw,80px) clamp(28px,6vw,100px);display:grid;gap:40px;align-items:center}
+  @media(min-width:900px){.contact{grid-template-columns:1.2fr 1fr}}
+  .contact h2{font-size:clamp(30px,3.6vw,44px);font-weight:500;line-height:1.15}
+  .contact p{margin:20px 0 30px}
+  .contact .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+
+  footer{background:var(--dark);color:#fff;border-radius:var(--r) var(--r) 0 0;margin-top:clamp(64px,9vw,140px);padding:55px clamp(28px,5vw,60px) 50px}
+  footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+  footer .logo{color:#fff}
+  footer .flinks{display:flex;gap:30px;flex-wrap:wrap}
+  footer .bottom{border-top:1px solid #fff;margin-top:50px;padding-top:30px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:16px;opacity:.85}
+  footer .tag{font-size:20px;color:#000}
+
+  @media (prefers-reduced-motion:no-preference){
+    .art .spin{transform-origin:280px 240px;animation:spin 40s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  }
+
+  .gtbl{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #1B2233;border-radius:45px;box-shadow:0 5px 0 #1B2233;overflow:hidden;background:#fff}
+  .gtbl th{background:#1B2233;color:#fff;text-align:left;font-weight:500;padding:22px 28px;font-size:16px}
+  .gtbl td{padding:20px 28px;border-top:1px solid #1B2233;vertical-align:top;font-size:17px}
+  .gtbl td:first-child{font-weight:600}
+  .gtbl code{font-family:inherit;background:#FFF4EA;padding:2px 8px;border-radius:7px}
+  @media(max-width:640px){.gtbl thead{display:none}.gtbl tr{display:block;border-top:1px solid #1B2233;padding:18px 22px}.gtbl tr:first-child{border-top:0}.gtbl td{display:block;border:0;padding:3px 0}}
+  .src{font-size:15px;margin-top:22px;max-width:80ch}
+  .signs{display:grid;gap:30px}@media(min-width:800px){.signs{grid-template-columns:1fr 1fr 1fr}}
+  .sign{border:1px solid #1B2233;border-radius:45px;box-shadow:0 5px 0 #1B2233;padding:36px;background:#FFF4EA}
+  .sign:nth-child(3n+2){background:#F08A3C}.sign:nth-child(3n){background:#1B2233;color:#fff}
+  .sign b{display:block;font-size:22px;font-weight:500;margin-bottom:10px}
+  .warn{margin-top:30px;border:1px solid #1B2233;border-radius:45px;box-shadow:0 5px 0 #1B2233;padding:36px 44px;background:#F08A3C}
+  .facts{display:flex;gap:40px;margin-top:30px;flex-wrap:wrap}.facts div{border-left:3px solid #F08A3C;padding-left:14px}.facts b{display:block;font-size:34px;font-weight:500}
+  .links a.lang{display:inline-block!important;font-weight:600;text-decoration:none;border-bottom:3px solid var(--lime)}@media(max-width:520px){nav{gap:12px}.links{gap:12px}.links .btn-o{padding:10px 12px;font-size:14px;white-space:nowrap}nav .logo{font-size:21px}}
+  .copy{position:relative;background:#fff;border:1px solid #1B2233;border-radius:24px;padding:22px 26px;margin-top:18px;font-size:17px;white-space:pre-line}
+  .copy small{display:block;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;opacity:.6;margin-bottom:6px}
+  .path{display:inline-block;background:#1B2233;color:#fff;border-radius:10px;padding:4px 12px;font-size:15px;margin:4px 0}
+  details .body{border-top:1px solid #1B2233;margin-top:30px;padding-top:30px;max-width:90ch}
+  details .body p{border:0;margin:0 0 14px;padding:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="/"><svg viewBox="0 0 30 30"><path d="M15 0l3.6 11.4L30 15l-11.4 3.6L15 30l-3.6-11.4L0 15l11.4-3.6z" fill="#1B2233"/></svg>Sigilock</a>
+    <div class="links">
+      <a href="#pasos">Los 3 pasos</a><a href="#ojo">Antes de empezar</a><a href="#ia">Con IA</a>
+      <a class="btn-o" href="https://ig.me/m/sigilock">Escríbeme</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="tag" style="font-size:18px">Guía para negocios · 25 nov 2026</span>
+      <h1 style="margin-top:24px">Tu WhatsApp contesta solo en 3 pasos.</h1>
+      <p>Antes de pagar un peso por un bot con IA, la app gratis de WhatsApp Business ya trae tres herramientas que contestan por ti. Aquí está dónde se prende cada una y los textos listos para copiar.</p>
+      <div class="facts"><div><small>Costo</small><b>RD$0</b></div><div><small>Tiempo</small><b>15 min</b></div><div><small>Necesitas</small><b>Tu celular</b></div></div>
+    </div>
+    <svg class="art" viewBox="0 0 560 480" fill="none" stroke="#1B2233" stroke-width="2" aria-hidden="true">
+      <g class="spin"><ellipse cx="280" cy="240" rx="250" ry="90"/><ellipse cx="280" cy="240" rx="220" ry="140" transform="rotate(-20 280 240)"/><circle cx="58" cy="198" r="9" fill="#1B2233"/><circle cx="498" cy="290" r="12" fill="#F08A3C"/></g>
+      <rect x="200" y="90" width="160" height="300" rx="26" fill="#1B2233"/>
+      <rect x="215" y="120" width="130" height="240" rx="10" fill="#FFF4EA"/>
+      <rect x="225" y="140" width="80" height="26" rx="13" fill="#F08A3C" stroke="none"/>
+      <rect x="255" y="180" width="80" height="26" rx="13" fill="#1B2233" stroke="none"/>
+      <rect x="225" y="220" width="95" height="26" rx="13" fill="#F08A3C" stroke="none"/>
+      <rect x="245" y="260" width="90" height="26" rx="13" fill="#1B2233" stroke="none"/>
+      <path d="M470 60l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" fill="#1B2233"/>
+      <path d="M95 360l10 32 32 10-32 10-10 32-10-32-32-10 32-10z" fill="#1B2233"/>
+      <text x="380" y="140" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="600" fill="#1B2233" stroke="none">1 s</text>
+    </svg>
+  </header>
+
+  <section id="ojo">
+    <div class="sh"><span class="tag">Antes de empezar</span><p>Tres cosas que casi nadie sabe y que te ahorran un dolor de cabeza.</p></div>
+    <div class="signs">
+      <div class="sign"><b>Tiene que ser WhatsApp Business.</b>Es otra app, gratis, en Play Store y App Store. Puedes pasar tu número del WhatsApp normal sin perder los chats.</div>
+      <div class="sign"><b>La bienvenida no sale en cada mensaje.</b>Le llega al cliente la primera vez que te escribe, o si lleva 14 días sin escribirte.</div>
+      <div class="sign"><b>Si prendes la IA de Meta, esto se pausa.</b>Con el agente de IA de Meta activo, WhatsApp pausa la bienvenida y la ausencia mientras la IA esté prendida.</div>
+    </div>
+    <p class="src">Fuente: Centro de ayuda de WhatsApp, <a href="https://faq.whatsapp.com/501866148528310/?cms_platform=android">mensajes de bienvenida</a>, <a href="https://faq.whatsapp.com/1791149784551042/?cms_platform=android">respuestas rápidas</a> y <a href="https://faq.whatsapp.com/291930066973116">Meta Business Agent</a>. Los nombres de los menús pueden cambiar un poco según tu teléfono y la versión de la app.</p>
+  </section>
+
+  <section id="pasos">
+    <div class="sh"><span class="tag">Los 3 pasos</span><p>En Android, las herramientas están en los tres puntitos de arriba. En iPhone, en Configuración.</p></div>
+
+    <details open><summary><b>01</b>Mensaje de bienvenida<i></i></summary><div class="body">
+      <p><span class="path">Herramientas para la empresa → Mensaje de bienvenida</span></p>
+      <p>Prende "Enviar mensaje de bienvenida", escribe el texto y en destinatarios deja "Todos". Así el cliente nuevo tiene respuesta en un segundo, aunque estés atendiendo a otro.</p>
+      <div class="copy"><small>Texto para copiar</small>¡Hola! Gracias por escribir a [Tu negocio].
+Ya te atendemos. Mientras tanto, escríbenos qué estás buscando y desde qué sector nos escribes, para darte precio y tiempo de entrega.</div>
+    </div></details>
+
+    <details><summary><b>02</b>Horario y mensaje de ausencia<i></i></summary><div class="body">
+      <p><span class="path">Herramientas para la empresa → Perfil de empresa → Horario</span></p>
+      <p>Primero pon tu horario real (por ejemplo, lunes a viernes de 8:00 a 6:00). Sin horario, la opción "fuera del horario" no funciona.</p>
+      <p><span class="path">Herramientas para la empresa → Mensaje de ausencia</span></p>
+      <p>Prende "Enviar mensaje de ausencia" y en Programar elige "Fuera del horario de atención". Si alguien te escribe a las 11 de la noche, sabe cuándo le vas a contestar en vez de pensar que lo dejaste en visto.</p>
+      <div class="copy"><small>Texto para copiar</small>¡Gracias por escribir! Ahora mismo estamos cerrados.
+Te contestamos mañana a partir de las 8:00 a.m. Déjanos tu pedido o pregunta y eres de los primeros.</div>
+    </div></details>
+
+    <details><summary><b>03</b>Respuestas rápidas<i></i></summary><div class="body">
+      <p><span class="path">Herramientas para la empresa → Respuestas rápidas → +</span></p>
+      <p>Guarda las respuestas que escribes veinte veces al día, cada una con un atajo. En cualquier chat escribes "/" y el atajo, y la respuesta sale completa. Puedes guardar hasta 50.</p>
+      <div class="copy"><small>/precio</small>Nuestros precios: [producto 1] RD$___ · [producto 2] RD$___. El envío dentro de [zona] cuesta RD$___.</div>
+      <div class="copy"><small>/direccion</small>Estamos en [calle y número], [referencia]. Abrimos de lunes a viernes de 8:00 a.m. a 6:00 p.m. Ubicación: [link de Google Maps].</div>
+      <div class="copy"><small>/cuenta</small>Puedes transferir a [banco], cuenta [tipo] [número], a nombre de [nombre]. Mándanos la captura y despachamos.</div>
+      <div class="copy"><small>/delivery</small>Sí hacemos delivery en [zonas]. Llega en [tiempo]. Mándanos tu ubicación por aquí.</div>
+      <div class="copy"><small>/gracias</small>¡Gracias por tu compra! Cualquier cosa, por aquí mismo te atendemos.</div>
+    </div></details>
+  </section>
+
+  <section id="ia">
+    <div class="contact">
+      <div>
+        <h2>Cuando esto se te quede corto, viene la IA.</h2>
+        <p>Estas tres herramientas contestan, pero no venden: no entienden preguntas nuevas, no toman pedidos ni te separan al cliente que está listo para comprar. Eso es lo que monto con IA para negocios. Escríbeme qué vendes y cuántos mensajes te llegan al día, y te digo si te conviene.</p>
+        <div class="row"><a class="btn" href="https://ig.me/m/sigilock">Escribirme por Instagram</a><span>Sin compromiso. Te contesto yo, no un bot.</span></div>
+      </div>
+      <svg viewBox="0 0 300 300" fill="none" aria-hidden="true"><path d="M150 20l22 108 108 22-108 22-22 108-22-108-108-22 108-22z" fill="#1B2233"/><path d="M240 210l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" fill="#F08A3C"/></svg>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <div class="top">
+      <a class="logo" href="/"><svg viewBox="0 0 30 30"><path d="M15 0l3.6 11.4L30 15l-11.4 3.6L15 30l-3.6-11.4L0 15l11.4-3.6z" fill="#fff"/></svg>Sigilock</a>
+      <div class="flinks"><a href="/">Inicio</a><a href="/tienda/">Guía para tiendas</a><a href="https://www.instagram.com/sigilock/">Instagram</a></div>
+    </div>
+    <div class="bottom"><span>© 2026 Sigilock · Juan Alexander</span><span><span class="tag">Desconfía primero. Verifica siempre.</span></span></div>
+  </div>
+</footer>
+</body>
+</html>
