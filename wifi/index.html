@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mide tu WiFi en 2 minutos · Sigilock</title>
+<meta name="description" content="Cómo saber si te falta velocidad por el plan, por el router o por la distancia, con un speedtest y un comando. Prueba real en una casa con Claro.">
+<meta property="og:title" content="Lejos 82 megas, cerca 205: mide tu WiFi en 2 minutos">
+<meta property="og:description" content="Speedtest lejos y cerca y un comando. Y qué hacer, en orden.">
+<meta property="og:image" content="../img/avatar-original.webp">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--lime:#F08A3C;--dark:#1B2233;--grey:#FFF4EA;--ink:#000;--r:45px;--ease:cubic-bezier(.22,1,.36,1)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Space Grotesk",system-ui,sans-serif;color:var(--ink);background:#fff;font-size:18px;line-height:1.4;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,5vw,60px)}
+  section{margin-top:clamp(64px,9vw,140px)}
+
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:40px 0 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:28px;text-decoration:none}
+  .logo svg{width:30px;height:30px}
+  .links{display:flex;align-items:center;gap:36px;font-size:18px}
+  .links a{text-decoration:none}
+  .links a:not(.btn-o):hover{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px;text-underline-offset:6px}
+  @media(max-width:860px){.links a:not(.btn-o){display:none}}
+
+  /* buttons */
+  .btn{display:inline-block;background:var(--dark);color:#fff;text-decoration:none;padding:20px 35px;border-radius:14px;font-size:18px;transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-o{border:1px solid var(--dark);padding:18px 32px;border-radius:14px;text-decoration:none}
+  .btn-o:hover{background:var(--lime)}
+
+  /* hero */
+  .hero{display:grid;gap:40px;align-items:center;margin-top:60px}
+  @media(min-width:900px){.hero{grid-template-columns:1.05fr 1fr}}
+  h1{font-size:clamp(40px,5.2vw,60px);font-weight:500;line-height:1.1;letter-spacing:-.01em}
+  .hero p{margin:30px 0 35px;max-width:31ch;font-size:20px}
+  .art{width:100%;max-width:560px;justify-self:center}
+
+  /* tools strip */
+  .strip{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 36px;margin-top:70px;color:#888;font-weight:600;font-size:22px;letter-spacing:-.01em}
+
+  /* section heading */
+  .sh{display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px;margin-bottom:60px}
+  .tag{background:var(--lime);font-size:40px;font-weight:500;padding:0 7px;border-radius:7px;line-height:1.25}
+  .sh p{max-width:580px}
+
+  /* cards */
+  .grid{display:grid;gap:40px}
+  @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
+  .card{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);padding:50px;display:grid;grid-template-columns:1fr auto;gap:20px;min-height:310px;background:var(--grey)}
+  .card.l{background:var(--lime)}.card.d{background:var(--dark);color:#fff}
+  .card h3{font-size:30px;font-weight:500;line-height:1.2;align-self:start}
+  .card h3 span{background:var(--lime);color:#000;padding:0 7px;border-radius:7px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .card.l h3 span{background:#fff}
+  .card ul{list-style:none;grid-column:1/-1;align-self:end;font-size:16px}
+  .card li{padding:6px 0;border-top:1px solid color-mix(in srgb,currentColor 20%,transparent)}
+  .card .ic{width:110px;height:110px}
+  @media(max-width:520px){.card{padding:32px}.card .ic{width:70px;height:70px}}
+
+  /* cta box */
+  .cta{background:var(--grey);border-radius:var(--r);padding:60px;display:grid;gap:30px;align-items:center}
+  @media(min-width:900px){.cta{grid-template-columns:1.3fr 1fr}}
+  .cta h2{font-size:30px;font-weight:500}.cta p{margin:26px 0;max-width:50ch}
+  .cta svg{max-width:300px;justify-self:center}
+
+  /* case */
+  .case{background:var(--dark);color:#fff;border-radius:var(--r);padding:clamp(36px,5vw,70px);display:grid;gap:40px}
+  @media(min-width:900px){.case{grid-template-columns:1fr 1px 1fr 1px 1fr}}
+  .case .sep{background:#fff;opacity:.6}
+  .big{font-size:64px;font-weight:500;color:var(--lime);line-height:1}
+  .case p{margin-top:14px}
+  .case a{color:var(--lime);display:inline-flex;gap:10px;margin-top:20px;text-decoration:none}
+  .note{font-size:14px;opacity:.6;margin-top:16px}
+
+  /* process */
+  details{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);background:var(--grey);padding:36px 60px;margin-bottom:30px}
+  details[open]{background:var(--lime)}
+  summary{list-style:none;display:flex;align-items:center;gap:25px;cursor:pointer;font-size:30px;font-weight:500}
+  summary::-webkit-details-marker{display:none}
+  summary b{font-size:60px;font-weight:500}
+  summary i{margin-left:auto;width:58px;height:58px;border:1px solid var(--dark);border-radius:50%;background:var(--grey);display:grid;place-items:center;font-style:normal;font-size:34px;flex:none}
+  details[open] summary i::before{content:"−"}details:not([open]) summary i::before{content:"+"}
+  details p{border-top:1px solid var(--dark);margin-top:30px;padding-top:30px;max-width:90ch}
+  @media(max-width:600px){details{padding:24px}summary{font-size:20px;gap:14px}summary b{font-size:36px}summary i{width:40px;height:40px;font-size:24px}}
+
+  /* about */
+  .about{border:1px solid var(--dark);border-radius:var(--r);box-shadow:0 5px 0 var(--dark);padding:40px 35px;display:grid;gap:28px}
+  @media(min-width:900px){.about{grid-template-columns:auto 1fr 1.4fr;align-items:center}}
+  .about img{width:110px;height:110px;border-radius:50%;object-fit:cover;background:var(--lime);border:3px solid var(--lime)}
+  .about h3{font-size:24px;font-weight:600}.about .role{margin-top:4px}
+  .about p+p{margin-top:12px}
+
+  /* resources */
+  .res{background:var(--dark);border-radius:var(--r);padding:clamp(36px,5vw,84px);display:grid;gap:40px;color:#fff}
+  @media(min-width:900px){.res{grid-template-columns:1fr 1fr}}
+  .bubble{border:1px solid var(--lime);border-radius:var(--r);padding:40px;display:block;text-decoration:none;transition:background .25s var(--ease)}
+  .bubble:hover{background:#252e44}
+  .bubble small{color:var(--lime);font-size:16px}
+  .bubble h3{font-size:26px;font-weight:500;margin:12px 0}
+  .bubble span{color:var(--lime)}
+
+  /* contact */
+  .contact{background:var(--grey);border-radius:var(--r);padding:clamp(36px,5vw,80px) clamp(28px,6vw,100px);display:grid;gap:40px;align-items:center}
+  @media(min-width:900px){.contact{grid-template-columns:1.2fr 1fr}}
+  .contact h2{font-size:clamp(30px,3.6vw,44px);font-weight:500;line-height:1.15}
+  .contact p{margin:20px 0 30px}
+  .contact .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+
+  footer{background:var(--dark);color:#fff;border-radius:var(--r) var(--r) 0 0;margin-top:clamp(64px,9vw,140px);padding:55px clamp(28px,5vw,60px) 50px}
+  footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+  footer .logo{color:#fff}
+  footer .flinks{display:flex;gap:30px;flex-wrap:wrap}
+  footer .bottom{border-top:1px solid #fff;margin-top:50px;padding-top:30px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:16px;opacity:.85}
+  footer .tag{font-size:20px;color:#000}
+
+  @media (prefers-reduced-motion:no-preference){
+    .art .spin{transform-origin:280px 240px;animation:spin 40s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  }
+
+  .gtbl{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #1B2233;border-radius:45px;box-shadow:0 5px 0 #1B2233;overflow:hidden;background:#fff}
+  .gtbl th{background:#1B2233;color:#fff;text-align:left;font-weight:500;padding:22px 28px;font-size:16px}
+  .gtbl td{padding:20px 28px;border-top:1px solid #1B2233;vertical-align:top;font-size:17px}
+  .gtbl td:first-child{font-weight:600}
+  .gtbl code{font-family:inherit;background:#FFF4EA;padding:2px 8px;border-radius:7px}
+  @media(max-width:640px){.gtbl thead{display:none}.gtbl tr{display:block;border-top:1px solid #1B2233;padding:18px 22px}.gtbl tr:first-child{border-top:0}.gtbl td{display:block;border:0;padding:3px 0}}
+  .src{font-size:15px;margin-top:22px;max-width:80ch}
+  .signs{display:grid;gap:30px}@media(min-width:800px){.signs{grid-template-columns:1fr 1fr 1fr}}
+  .sign{border:1px solid #1B2233;border-radius:45px;box-shadow:0 5px 0 #1B2233;padding:36px;background:#FFF4EA}
+  .sign:nth-child(3n+2){background:#F08A3C}.sign:nth-child(3n){background:#1B2233;color:#fff}
+  .sign b{display:block;font-size:22px;font-weight:500;margin-bottom:10px}
+  .warn{margin-top:30px;border:1px solid #1B2233;border-radius:45px;box-shadow:0 5px 0 #1B2233;padding:36px 44px;background:#F08A3C}
+  .facts{display:flex;gap:40px;margin-top:30px;flex-wrap:wrap}.facts div{border-left:3px solid #F08A3C;padding-left:14px}.facts b{display:block;font-size:34px;font-weight:500}
+  .links a.lang{display:inline-block!important;font-weight:600;text-decoration:none;border-bottom:3px solid var(--lime)}@media(max-width:520px){nav{gap:12px}.links{gap:12px}.links .btn-o{padding:10px 12px;font-size:14px;white-space:nowrap}nav .logo{font-size:21px}}
+  .copy{position:relative;background:#fff;border:1px solid #1B2233;border-radius:24px;padding:22px 26px;margin-top:18px;font-size:17px;white-space:pre-line}
+  .copy small{display:block;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;opacity:.6;margin-bottom:6px}
+  .path{display:inline-block;background:#1B2233;color:#fff;border-radius:10px;padding:4px 12px;font-size:15px;margin:4px 0}
+  details .body{border-top:1px solid #1B2233;margin-top:30px;padding-top:30px;max-width:90ch}
+  details .body p{border:0;margin:0 0 14px;padding:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="/"><svg viewBox="0 0 30 30"><path d="M15 0l3.6 11.4L30 15l-11.4 3.6L15 30l-3.6-11.4L0 15l11.4-3.6z" fill="#1B2233"/></svg>Sigilock</a>
+    <div class="links">
+      <a href="#prueba">Mi prueba</a><a href="#mide">Mide el tuyo</a><a href="#arreglo">Qué hacer</a>
+      <a class="btn-o" href="https://ig.me/m/sigilock">Escríbeme</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="tag" style="font-size:18px">Guía · 26 nov 2026</span>
+      <h1 style="margin-top:24px">Pagas 200 megas. En tu cuarto te llegan 82.</h1>
+      <p>Hice lo del video viral: le di mi router a la IA. Cambió la seguridad, apagó el WPS y la velocidad quedó igual. Después me paré al lado del router y llegaron los 200. Aquí está cómo medir el tuyo en dos minutos y qué hacer según lo que te salga.</p>
+      <div class="facts"><div><small>Lejos</small><b>82</b></div><div><small>Cerca</small><b>205</b></div><div><small>Lag al subir algo</small><b>1,232 → 10 ms</b></div></div>
+    </div>
+    <svg class="art" viewBox="0 0 560 480" fill="none" stroke="#1B2233" stroke-width="2" aria-hidden="true">
+      <g class="spin"><ellipse cx="280" cy="240" rx="250" ry="90"/><ellipse cx="280" cy="240" rx="220" ry="140" transform="rotate(-20 280 240)"/><circle cx="58" cy="198" r="9" fill="#1B2233"/><circle cx="498" cy="290" r="12" fill="#F08A3C"/></g>
+      <rect x="180" y="300" width="200" height="60" rx="14" fill="#1B2233"/>
+      <circle cx="220" cy="330" r="7" fill="#F08A3C" stroke="none"/><circle cx="245" cy="330" r="7" fill="#F08A3C" stroke="none"/>
+      <path d="M200 250a110 110 0 0 1 160 0" stroke-width="10" stroke-linecap="round"/>
+      <path d="M170 215a150 150 0 0 1 220 0" stroke-width="10" stroke-linecap="round" stroke="#F08A3C"/>
+      <path d="M140 180a190 190 0 0 1 280 0" stroke-width="10" stroke-linecap="round" stroke-dasharray="4 18"/>
+      <path d="M470 60l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" fill="#1B2233"/>
+    </svg>
+  </header>
+
+  <section id="prueba">
+    <div class="sh"><span class="tag">Mi prueba</span><p>Plan de 200 megas con Claro en Santiago. Módem Huawei HG8145V5. Laptop con WiFi 6, en la red de 5 GHz. Mismo servidor de Speedtest en todas las pruebas.</p></div>
+    <table class="gtbl">
+      <thead><tr><th>Prueba</th><th>Bajada</th><th>Lag con carga</th><th>Señal</th></tr></thead>
+      <tbody>
+        <tr><td>En mi cuarto, antes</td><td>108 megas (promedio de 3)</td><td>hasta 660 ms</td><td>43 %</td></tr>
+        <tr><td>En mi cuarto, después de que la IA cambió el router</td><td>82 megas (promedio de 3)</td><td>hasta 1,232 ms</td><td>43 %</td></tr>
+        <tr><td>Al lado del router, mismos ajustes</td><td>205 megas</td><td>10 ms</td><td>98 %</td></tr>
+      </tbody>
+    </table>
+    <p class="src">La diferencia entre 108 y 82 está dentro de lo que varía el WiFi de una prueba a otra: la IA no lo empeoró, pero tampoco lo mejoró. Lo que no pudo cambiar: el router de Claro esconde el "airtime fairness" y no deja quitar el modo 802.11b.</p>
+  </section>
+
+  <section id="mide">
+    <div class="sh"><span class="tag">Mide el tuyo</span><p>Dos minutos. Lo que importa es comparar el mismo aparato en dos sitios.</p></div>
+
+    <details open><summary><b>01</b>Speedtest donde usas el internet<i></i></summary><div class="body">
+      <p>Entra a <a href="https://www.speedtest.net">speedtest.net</a>. Toca "Cambiar servidor" y elige uno de tu compañía en tu ciudad. Haz la prueba 2 veces y anota la bajada y el ping con carga (los dos números al lado de las flechitas).</p>
+    </div></details>
+
+    <details><summary><b>02</b>El mismo speedtest al lado del router<i></i></summary><div class="body">
+      <p>Mismo aparato, mismo servidor, a uno o dos metros del router. Dos pruebas.</p>
+    </div></details>
+
+    <details><summary><b>03</b>La señal, con un comando<i></i></summary><div class="body">
+      <p>En Windows, abre PowerShell o el Símbolo del sistema y escribe:</p>
+      <div class="copy"><small>Copia y pega</small>netsh wlan show interfaces</div>
+      <p style="margin-top:18px">Mira tres líneas: <b>Signal</b> (la señal en %), <b>Radio type</b> (802.11ac es WiFi 5; 802.11ax es WiFi 6) y <b>Band</b> (2.4 o 5 GHz). En Mac: mantén Option y toca el ícono del WiFi, y mira el RSSI (mejor que -60 es buena señal).</p>
+    </div></details>
+
+    <div class="signs" style="margin-top:40px">
+      <div class="sign"><b>Cerca te llega el plan y lejos no.</b>Tu problema es la distancia. No es la compañía ni la configuración. Ve a "Qué hacer".</div>
+      <div class="sign"><b>Ni cerca te llega el plan.</b>Prueba con cable al router. Si con cable tampoco llega, ahí sí llama a la compañía con las capturas.</div>
+      <div class="sign"><b>Señal bajo 60 %.</b>Ningún ajuste del router ni truco de IA te lo arregla. Es física: paredes y metros.</div>
+    </div>
+  </section>
+
+  <section id="arreglo">
+    <div class="sh"><span class="tag">Qué hacer, en orden</span><p>De lo que más funciona a lo que menos.</p></div>
+    <div class="grid">
+      <div class="card l"><h3><span>1.</span> Cable</h3><ul><li>Un cable Cat6 del router a la PC o la consola.</li><li>Cero lag y el plan completo. Para jugar no hay nada mejor.</li></ul></div>
+      <div class="card"><h3><span>2.</span> Router WiFi 6 en el medio de la casa</h3><ul><li>Conectado por cable al módem de la compañía; al módem le apagas el WiFi.</li><li>Si trae QoS o SQM, se acaba el lag cuando alguien sube algo.</li></ul></div>
+      <div class="card d"><h3><span>3.</span> Mesh WiFi 6 de dos piezas</h3><ul><li>Una pieza al lado del módem, con cable; la otra a mitad de camino, no dentro del cuarto.</li><li>La opción si no puedes pasar cable.</li></ul></div>
+      <div class="card"><h3><span>4.</span> Pedir que muevan el módem</h3><ul><li>A un punto central y alto. Depende de por dónde entra la fibra.</li><li>Lo que no: un repetidor barato. Repite en la misma banda, corta la velocidad a la mitad y suma lag.</li></ul></div>
+    </div>
+    <div class="warn"><b>Gratis, hoy:</b> pasa la TV, las bocinas y las cámaras a la red de 2.4 GHz y deja la de 5 GHz para lo que necesita velocidad. Y revisa la lista de equipos conectados: si hay alguno que no conoces, cambia la clave del WiFi. Bloquear por MAC no sirve.</div>
+  </section>
+
+  <section id="ia">
+    <div class="contact">
+      <div>
+        <h2>¿Te salió algo raro en la prueba?</h2>
+        <p>Mándame las capturas del speedtest lejos y cerca, y lo que te dio el comando. Te digo cuál de las cuatro opciones te toca.</p>
+        <div class="row"><a class="btn" href="https://ig.me/m/sigilock">Escribirme por Instagram</a><span>Te contesto yo, no un bot.</span></div>
+      </div>
+      <svg viewBox="0 0 300 300" fill="none" aria-hidden="true"><path d="M150 20l22 108 108 22-108 22-22 108-22-108-108-22 108-22z" fill="#1B2233"/><path d="M240 210l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" fill="#F08A3C"/></svg>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <div class="top">
+      <a class="logo" href="/"><svg viewBox="0 0 30 30"><path d="M15 0l3.6 11.4L30 15l-11.4 3.6L15 30l-3.6-11.4L0 15l11.4-3.6z" fill="#fff"/></svg>Sigilock</a>
+      <div class="flinks"><a href="/">Inicio</a><a href="/whatsapp/">Guía de WhatsApp</a><a href="https://www.instagram.com/sigilock/">Instagram</a></div>
+    </div>
+    <div class="bottom"><span>© 2026 Sigilock · Juan Alexander</span><span><span class="tag">Desconfía primero. Verifica siempre.</span></span></div>
+  </div>
+</footer>
+</body>
+</html>
